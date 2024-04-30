@@ -6,8 +6,8 @@ import styles from './company.module.css'
 function Company(){
 return (
   <div className={`${styles.container1}`}>
-    <h1>Company</h1>
-    <hr />
+    <h1 className={`${styles.heading}`}>Company</h1>
+    <hr className={`${styles.line}`} />
     <div className={`${styles.container2}`}>
       <a href="#">
         <img

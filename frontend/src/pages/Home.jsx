@@ -4,13 +4,15 @@ import Foot from "../components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Heroo from "../components/Hero";
 import Company from "../components/company";
+import Aboutus from "../components/AboutUS";
 function Home()
 {
     return(
-    <div>
+    <div style={{backgroundColor:"black"}}>
         <Navibar />
         <Heroo/>
         <Company/>
+        <Aboutus/>
         <Foot />
     </div>);
 }

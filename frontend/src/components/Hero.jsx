@@ -8,11 +8,14 @@ return (
     </div>
     <div className={`${styles.container1}`}>
       <span className={`${styles.container2}`}>
-        <h1>Invest in Unlisted Stocks</h1>
+        <h1 className={`${styles.heading1}`}>Invest in Unlisted Stocks</h1>
       </span>
       <span className={`${styles.container3}`}>
-        <h6> Achieve Your Investment Goals With Us</h6>
-        <p>
+        <h6 className={`${styles.heading2}`}>
+          {" "}
+          Achieve Your Investment Goals With Us
+        </h6>
+        <p className={`${styles.para}`}>
           Investing in the stock market can be daunting, but our platform at
           Unlisted Stocks makes it easy for you to buy and sell unlisted stocks.
           Our user-friendly dashboard allows you to track your purchases and
