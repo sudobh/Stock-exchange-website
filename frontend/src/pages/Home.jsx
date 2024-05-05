@@ -7,14 +7,15 @@ import Company from "../components/company";
 import Aboutus from "../components/AboutUS";
 function Home()
 {
-    return(
-    <div style={{backgroundColor:"black"}}>
+    return (
+      <div style={{ backgroundColor: "#212529" }}>
         <Navibar />
-        <Heroo/>
-        <Company/>
-        <Aboutus/>
+        <Heroo />
+        <Company />
+        <Aboutus />
         <Foot />
-    </div>);
+      </div>
+    );
 }
 
 export default Home;

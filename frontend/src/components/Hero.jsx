@@ -1,4 +1,4 @@
-import img1 from '../Data/img1.jpg'
+import img1 from "../assets/Data/img1.jpg";
 import styles from './Hero.module.css'
 function Heroo(){
 return (
