@@ -30,25 +30,36 @@ function Company()
                         <Row><h5>P/E: {cpe}</h5></Row>
                         </Col>
                         <Col md={6}>
+                        <Container>
                         <Row>
-                            
-                                <Button onClick={decCount}><Image style={{height:"10px",width:"10px"}} src={Minus}/></Button><h5>{count}</h5><Button onClick={incCount}><Image style={{height:"10px",width:"10px"}} src={Plus}/></Button>
-                
+                            <Col xs={1} className="text-center">
+                                <Button onClick={decCount}><Image style={{height:"10px",width:"10px"}} src={Minus}/></Button>
+                            </Col>
+                            <Col xs={2} className="text-center">
+                                <h5>{count}</h5>
+                            </Col>
+                            <Col xs={1} className="text-center">
+                                <Button onClick={incCount}><Image style={{height:"10px",width:"10px"}} src={Plus}/></Button>
+                            </Col>
+                    
+                        </Row>
+                        </Container>
+                        <Row>
+                            <h5>Total Investment: &#x20B9;{count*cprice}</h5>
                         </Row>
                         <Row>
-                            <h5>Total Investment:</h5>
+                            <h5>Stamp Duty(0.015%): &#x20B9;{0.00015*(count*cprice)}</h5>
                         </Row>
                         <Row>
-                            <h5>Stamp Duty(0.015%): </h5>
+                            <h5>Transaction fee: &#x20B9;</h5>
                         </Row>
                         <Row>
-                            <h5>Transaction fee: </h5>
+                            <h5>Total Price: &#x20B9;{(0.00015*(count*cprice))+(count*cprice)}</h5>
                         </Row>
                         <Row>
-                            <h5>Total Price: </h5>
-                        </Row>
-                        <Row>
+                        <Col xs={4}>
                         <Button variant="outline-dark">Invest</Button>
+                        </Col>
                         </Row>
                         </Col>
                     </Row>
