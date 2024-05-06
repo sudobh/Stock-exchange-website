@@ -1,31 +1,106 @@
-.headingContainer{
-  margin-top: 30px;
+.search_bar {
+  height: 40px;
+  min-width: 200px;
+  width: 60%;
+  display: flex;
   align-items: center;
-  font-size: 20px;
-  margin-bottom: 5px;
-  border-top: 2px solid black;
+  border: solid f5f5f6;
+  background-color: #ffffff;
+  border-radius: 6px;
+
+}
+
+.search_input {
+  background-color: #f5f5f6;
+  color: #696e79;
+  flex-grow: 1;
+  height: 40px;
+  border: 0;
+  border-radius: 0 6px 6px 0;
+
+
+}
+
+.search_icon {
+  height: 20px;
   padding: 10px;
+  box-sizing: content-box;
+  background-color: #f5f5f6;
+  color: #282c3f;
+  font-weight: 600;
+  border-radius: 6px 0 0 6px;
+
+}
+.outercontainer{
+  display: flex;
+  justify-content: space-between;
   border-bottom: 2px solid black;
+  padding: 20px;
+  align-items: center;
+}
+.btncontainer{
+ width: 20%;
+ display: flex;
+ justify-content: space-evenly;
+}
+.companynamecontainer{
+  font-size: 20px;
+  width: 20%;
+}
+.outerrcontainer {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+   margin-left: 5%;
+   margin-right: 5%;
+   margin-bottom: 5%;
+  flex-wrap: wrap;
+}
+
+.innercontainer {
+  border: 2px solid wheat;
+  border-radius: 20px;
+  min-width: 300px;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagecontainer {
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+
+}
+
+.valuecontainer {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.buy {
+  width: 200px;
+}
+
+.slide {
+  width: 100%;
+}
+.heading {
+  font-size: 60px;
   font-weight: 700;
 }
-.companyContainer{
-border-top: 2px solid black;
-border-bottom: 2px solid black;
-margin-bottom: 2px;
-padding: 4px;
-font-size: 20px;
-}
-.logoContainer{
-  margin: 4px;
-}
-.logo{
-  width: 40px;
-  
-}
-.more{
-  text-decoration: none;
-  color: black;
-}
-.action{
-  align-items: center;
+.container1 {
+  max-width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  color: white;
 }
