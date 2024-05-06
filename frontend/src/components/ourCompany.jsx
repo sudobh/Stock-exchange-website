@@ -56,7 +56,6 @@ function OurCompany(){
             <div className="col-sm">Market Cap</div>
             <div className="col-sm">Current Price</div>
             <div className="col-sm">P/E</div>
-            <div className="col-sm">More Ratio</div>
             <div className="col-sm">Action</div>
           </div>
         </div>
@@ -70,15 +69,10 @@ function OurCompany(){
               <div className="col-sm">&#8377;{data.ccap}</div>
               <div className="col-sm">&#8377;{data.cprice}</div>
               <div className="col-sm">{data.cpe}</div>
-              <div className="col-sm">
-                <a href="#" className={`${styles.more}`}>
-                  More Ratio
-                </a>
-              </div>
               <div className={`${styles.action} col-sm`}>
               <Link to={`/company/${data.cname}/${data.ccap}/${data.cprice}/${data.cpe}/${data.cimg}`} className="btn btn-success">
                   Buy
-                </Link>
+                </button>
                 <button type="button" className="btn btn-warning">
                   Warning
                 </button>

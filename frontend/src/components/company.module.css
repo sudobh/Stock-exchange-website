@@ -1,7 +1,7 @@
 .container1{
-  max-width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
+  max-width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   text-align: center;
   padding-top: 20px;
   color: white;
@@ -15,12 +15,6 @@
   height: 2px;
   background-color: rgb(0, 0, 0);
 }
-
-.container2{
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .explore{
   margin-top: 50px;
   font-size: 20px;
@@ -33,11 +27,38 @@
   text-decoration: none;
   border: none;
 }
-
-.cimage{
-  margin: 5px;
+.outercontainer{
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+.innercontainer{
+  border: 2px solid wheat;
   border-radius: 20px;
-  border: solid 2px ;
-  border-color: white;
+  min-width: 300px;
+  padding: 20px;
+  margin: 20px;
+}
+.imagecontainer{
+  margin-bottom: 20px;
+}
+
+.image{
+  width: 250px;
+  height:250px;
+  border-radius: 50%;
   
+}
+.valuecontainer{
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.buy{
+  width: 200px;
+}
+.slide{
+  width: 100%;
 }
