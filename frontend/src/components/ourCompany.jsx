@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import Navibar from "./Navbar";
 import Foot from "./Footer";
 import styles from "./ourCompany.module.css"
@@ -51,8 +53,8 @@ function OurCompany(){
             <div className="col-sm">
               <input type="text" />
             </div>
-            <div className="col-sm">Market Cap(in ₹)</div>
-            <div className="col-sm">Current Price(in ₹)</div>
+            <div className="col-sm">Market Cap</div>
+            <div className="col-sm">Current Price</div>
             <div className="col-sm">P/E</div>
             <div className="col-sm">Action</div>
           </div>
@@ -64,12 +66,15 @@ function OurCompany(){
                 <img src={data.cimg} alt="" className={`${styles.logo}`} />
               </div>
               <div className="col-sm">{data.cname}</div>
-              <div className="col-sm">{data.ccap}</div>
-              <div className="col-sm">{data.cprice}</div>
+              <div className="col-sm">&#8377;{data.ccap}</div>
+              <div className="col-sm">&#8377;{data.cprice}</div>
               <div className="col-sm">{data.cpe}</div>
               <div className={`${styles.action} col-sm`}>
-                <button type="button" className="btn btn-success">
+              <Link to={`/buy/${data.cname}/${data.ccap}/${data.cprice}/${data.cpe}/${data.cimg}`} className="btn btn-success">
                   Buy
+                </button>
+                <button type="button" className="btn btn-warning">
+                  Warning
                 </button>
               </div>
             </div>
