@@ -3,9 +3,11 @@ import Navibar from "../components/Navbar";
 import Foot from "../components/Footer";
 import Minus from "../assets/minus.png";
 import Plus from "../assets/plus.png";
+import { useParams } from 'react-router-dom';
 import { Container,Row,Col, Button,Image } from "react-bootstrap";
 function Company()
 {
+    const { cname, ccap, cprice, cpe, cimg } = useParams();
     const [count,setCount]=React.useState(0);
     const incCount=()=>{
         setCount(count+1);
@@ -19,10 +21,10 @@ function Company()
         <Container>
             <Row>
                 <Col>
-                    <h3>Company Name</h3>
+                    <h3>cname</h3>
                     <Row>
                         <Col md={6}>
-                        <Row><h5>Price/Share: &#x20B9;1000</h5></Row>
+                        <Row><h5>Price/Share: &#x20B9;cprice</h5></Row>
                         <Row><h5>Type: Industrial</h5></Row>
                         <Row><h5>Face Value: &#x20B9;1</h5></Row>
                         <Row><h5>ISIN No.: 0000000000</h5></Row>
