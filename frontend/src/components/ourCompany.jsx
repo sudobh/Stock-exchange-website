@@ -76,7 +76,7 @@ function OurCompany(){
                 </a>
               </div>
               <div className={`${styles.action} col-sm`}>
-              <Link to={`/buy/${data.cname}/${data.ccap}/${data.cprice}/${data.cpe}/${data.cimg}`} className="btn btn-success">
+              <Link to={`/company/${data.cname}/${data.ccap}/${data.cprice}/${data.cpe}/${data.cimg}`} className="btn btn-success">
                   Buy
                 </Link>
                 <button type="button" className="btn btn-warning">
