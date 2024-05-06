@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/company/:cname/:ccap/:cprice/:cpe/:cimg" Component={<Company />} />
+        <Route path="/company/:cname/:ccap/:cprice/:cpe/:cimg" element={<Company />} />
         <Route path="/ShowMoreButton" element={<OurCompany />} />
       </Routes>
     </BrowserRouter>

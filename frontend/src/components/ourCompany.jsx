@@ -9,35 +9,35 @@ function OurCompany(){
      cname: "Bira",
      cimg: "biralogo.png",
      ccap: "1454",
-     cprice: "160/-",
+     cprice: "160",
      cpe: "-3.5",
    },
    {
      cname: "GKN Driveline",
      cimg: "gknlogo.png",
      ccap: "1754",
-     cprice: "1600/-",
+     cprice: "1600",
      cpe: "23.5",
    },
    {
      cname: "Mohan Meakin",
      cimg: "mohanlogo.jpg",
      ccap: "1754",
-     cprice: "1490/-",
+     cprice: "1490",
      cpe: "33.5",
    },
    {
      cname: "Tata Capital",
      cimg: "tatacaplogo.png",
      ccap: "398,288",
-     cprice: "1490/-",
+     cprice: "1490",
      cpe: "133.5",
    },
    {
      cname: "NSE",
      cimg: "nselogo.jpg",
      ccap: "236,610",
-     cprice: "5000/-",
+     cprice: "5000",
      cpe: "32.5",
    },
  ];
@@ -70,7 +70,7 @@ function OurCompany(){
               <div className="col-sm">&#8377;{data.cprice}</div>
               <div className="col-sm">{data.cpe}</div>
               <div className={`${styles.action} col-sm`}>
-              <Link to={`/company/${data.cname}/${data.ccap}/${data.cprice}/${data.cpe}/${data.cimg}`} className="btn btn-success">
+              <Link to={`/company/${encodeURIComponent(data.cname)}/${data.ccap}/${data.cprice}/${data.cpe}/${encodeURIComponent(data.cimg)}`} className="btn btn-success">
                   Buy
                 </Link>
                 <button type="button" className="btn btn-warning">

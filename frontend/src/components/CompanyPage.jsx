@@ -13,6 +13,7 @@ function Company()
         setCount(count+1);
     }
     const decCount=()=>{
+        if(count>0)
         setCount(count-1);
     }
     return(
@@ -21,19 +22,18 @@ function Company()
         <Container>
             <Row>
                 <Col>
-                    <h3>cname</h3>
+                    <h3>{cname}</h3>
                     <Row>
                         <Col md={6}>
-                        <Row><h5>Price/Share: &#x20B9;cprice</h5></Row>
-                        <Row><h5>Type: Industrial</h5></Row>
-                        <Row><h5>Face Value: &#x20B9;1</h5></Row>
-                        <Row><h5>ISIN No.: 0000000000</h5></Row>
+                        <Row><h5>Cap: &#x20B9;{ccap}</h5></Row>
+                        <Row><h5>Current Price: &#x20B9;{cprice}</h5></Row>
+                        <Row><h5>P/E: {cpe}</h5></Row>
                         </Col>
                         <Col md={6}>
                         <Row>
-                            <Col>
-                                <Button onClick={incCount}><Image style={{height:"10px",width:"10px"}} src={Minus}/></Button><h5>{count}</h5><Button onClick={decCount}><Image style={{height:"10px",width:"10px"}} src={Plus}/></Button>
-                            </Col>
+                            
+                                <Button onClick={decCount}><Image style={{height:"10px",width:"10px"}} src={Minus}/></Button><h5>{count}</h5><Button onClick={incCount}><Image style={{height:"10px",width:"10px"}} src={Plus}/></Button>
+                
                         </Row>
                         <Row>
                             <h5>Total Investment:</h5>
