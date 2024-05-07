@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "scripts": {
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^20.12.9",
+    "express": "^4.19.2",
+    "prisma": "^5.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
