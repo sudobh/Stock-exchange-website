@@ -16,7 +16,14 @@ export const createNewUser = async (req, res) => {
         })
 
         const token = createJWT(user)
-        res.json({ token })
+        res.json({
+            token : token,
+            username : user.username,
+            demat: user.demat,
+            email : user.email,
+            id : user.id,
+            created_at: user.createdAt
+    })
     }
     catch (e){
         console.log(e)
@@ -39,7 +46,14 @@ export const signIn = async (req, res) => {
             return
         }
         const token = createJWT(user)
-        res.json({token})
+        res.json({
+            token : token,
+            username : user.username,
+            demat: user.demat,
+            email : user.email,
+            id : user.id,
+            created_at: user.createdAt
+    })
         }
     catch (e){
         console.log(e)
