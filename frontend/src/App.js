@@ -3,6 +3,7 @@ import Login from "./pages/LoginPage";
 import Signup from "./pages/SignupPage";
 import Company from "./components/CompanyPage";
 import OurCompany from "./components/ourCompany";
+import Adminpage from "./components/admin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/company" element={<Company />} />
         <Route path="/ShowMoreButton" element={<OurCompany />} />
+        <Route path="/admin" element={<Adminpage/>}/>
       </Routes>
     </BrowserRouter>
   );

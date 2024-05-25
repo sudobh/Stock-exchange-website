@@ -68,7 +68,7 @@ function OurCompany(){
     <div
       style={{
         backgroundColor: "#212529",
-        minHeight:"1550px",
+        minHeight: "1550px",
         color: "white",
       }}
     >
@@ -87,13 +87,13 @@ function OurCompany(){
         </div>
         <div className={`${styles.btncontainer}`}>
           <Link to="/login">
-            <button type="button" class="m-1 btn btn-outline-light btn-sm">
+            <button type="button" className="m-1 btn btn-outline-light btn-sm">
               Log In
             </button>
           </Link>
 
           <Link to="/signup">
-            <button type="button" class="m-1 btn btn-outline-light btn-sm">
+            <button type="button" className="m-1 btn btn-outline-light btn-sm">
               Sign Up
             </button>
           </Link>
@@ -108,7 +108,7 @@ function OurCompany(){
       </div>
       <div className={`${styles.outerrcontainer}`}>
         {CompanyData.map((data) => (
-          <div className={`${styles.innercontainer}`}>
+          <div className={`${styles.innercontainer}`} key={data.cname}>
             <div className={`${styles.imagecontainer}`}>
               <img
                 src={data.cimg}
@@ -117,18 +117,16 @@ function OurCompany(){
               />
             </div>
             <div>
-              <p>
-                <h6 className={`${styles.valuecontainer}`}>
-                  Name : {data.cname}
-                </h6>
-                <h6 className={`${styles.valuecontainer}`}>
-                  Market Cap(in ₹): {data.ccap}cr.
-                </h6>
-                <h6 className={`${styles.valuecontainer}`}>
-                  Current Price(in ₹): {data.cprice}
-                </h6>
-                <h6 className={`${styles.valuecontainer}`}>P/E: {data.cpe}</h6>
-              </p>
+              <h6 className={`${styles.valuecontainer}`}>
+                Name : {data.cname}
+              </h6>
+              <h6 className={`${styles.valuecontainer}`}>
+                Market Cap(in ₹): {data.ccap}cr.
+              </h6>
+              <h6 className={`${styles.valuecontainer}`}>
+                Current Price(in ₹): {data.cprice}
+              </h6>
+              <h6 className={`${styles.valuecontainer}`}>P/E: {data.cpe}</h6>
             </div>
             <div>
               <Link to="/company">
@@ -143,7 +141,7 @@ function OurCompany(){
           </div>
         ))}
       </div>
-      <Foot/>
+      <Foot />
     </div>
   );
 }

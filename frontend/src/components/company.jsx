@@ -29,7 +29,7 @@ function Company() {
       <hr className={`${styles.line}`} />
       <div className={`${styles.outercontainer}`}>
         {Cdata.map((data) => (
-          <div className={`${styles.innercontainer}`}>
+          <div className={`${styles.innercontainer}`} key={data.cname}>
             <div className={`${styles.imagecontainer}`}>
               <img
                 src={data.cimg}
@@ -38,10 +38,10 @@ function Company() {
               />
             </div>
             <div>
-              <p>
+              <span>
                 <h6 className={`${styles.valuecontainer}`}>{data.cap}</h6>
                 <h6 className={`${styles.valuecontainer}`}>{data.price}</h6>
-              </p>
+              </span>
             </div>
             <div>
               <Link to="/company">
