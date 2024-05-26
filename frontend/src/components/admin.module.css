@@ -54,3 +54,7 @@
   width: 348px;
   height: 50px;
 }
+.inputfield::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

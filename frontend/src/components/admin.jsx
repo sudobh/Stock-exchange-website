@@ -46,7 +46,7 @@ function Adminpage() {
   };
 
   return (
-<div className={`${styles.maincontainer}`}>
+    <div className={`${styles.maincontainer}`}>
       <div className={`${styles.namecontainer}`}>Unlisted Stock Exchange</div>
       <hr className={`${styles.line}`} />
       <div className={`${styles.formcontainer}`}>
@@ -63,6 +63,7 @@ function Adminpage() {
                 placeholder="Enter Company Name"
                 className={`${styles.inputfield}`}
                 onChange={handleChange}
+                required
               />
             </div>
           </div>
@@ -74,29 +75,31 @@ function Adminpage() {
             </div>
             <div className="col-6">
               <input
-                type="text"
+                type="number"
                 name="marketCapitalisation"
                 value={formData.marketCapitalisation}
                 placeholder="Market Capitalisation"
                 className={`${styles.inputfield}`}
                 onChange={handleChange}
+                required
+                min={1000}
               />
             </div>
           </div>
           <div className={`${styles.inputcontainer} row`}>
             <div className="col-6">
-              <label htmlFor="initial price">
-                Initial Share Price(in ₹):
-              </label>
+              <label htmlFor="initial price">Initial Share Price(in ₹):</label>
             </div>
             <div className="col-6">
               <input
-                type="text"
+                type="number"
                 name="initialSharePrice"
                 value={formData.initialSharePrice}
                 placeholder="Initial Share Price(in ₹):"
                 className={`${styles.inputfield}`}
                 onChange={handleChange}
+                required
+                min={1}
               />
             </div>
           </div>
@@ -106,12 +109,14 @@ function Adminpage() {
             </div>
             <div className="col-6">
               <input
-                type="text"
+                type="number"
                 name="peRatio"
                 value={formData.peRatio}
                 placeholder="Enter P/E Ratio"
                 className={`${styles.inputfield}`}
                 onChange={handleChange}
+                required
+                min={0}
               />
             </div>
           </div>
@@ -124,6 +129,7 @@ function Adminpage() {
                 type="file"
                 name="companyLogo"
                 className={`${styles.inputfield1}`}
+                required accept="image/png, image/jpeg, image/jpg"
               />
             </div>
           </div>
@@ -138,6 +144,7 @@ function Adminpage() {
               value={formData.aboutCompany}
               rows="3"
               onChange={handleChange}
+              required
             ></textarea>
           </div>
           <div className={`${styles.inputcontainer} row`}>
