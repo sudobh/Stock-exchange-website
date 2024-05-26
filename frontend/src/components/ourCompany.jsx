@@ -108,7 +108,6 @@ function OurCompany(){
       </div>
       <div className={`${styles.outerrcontainer}`}>
         {CompanyData.map((data) => (
-<<<<<<< HEAD
           <div className={`${styles.companyContainer} container text-center`} key={data.cname}>
             <div className="row">
               <div className={` ${styles.logoContainer} col-sm`}>
@@ -126,37 +125,6 @@ function OurCompany(){
                   Warning
                 </button>
               </div>
-=======
-          <div className={`${styles.innercontainer}`} key={data.cname}>
-            <div className={`${styles.imagecontainer}`}>
-              <img
-                src={data.cimg}
-                alt={data.cname}
-                className={`${styles.image}`}
-              />
-            </div>
-            <div>
-              <h6 className={`${styles.valuecontainer}`}>
-                Name : {data.cname}
-              </h6>
-              <h6 className={`${styles.valuecontainer}`}>
-                Market Cap(in ₹): {data.ccap}cr.
-              </h6>
-              <h6 className={`${styles.valuecontainer}`}>
-                Current Price(in ₹): {data.cprice}
-              </h6>
-              <h6 className={`${styles.valuecontainer}`}>P/E: {data.cpe}</h6>
-            </div>
-            <div>
-              <Link to="/company">
-                <button
-                  type="button"
-                  className={` ${styles.buy} btn btn-success`}
-                >
-                  Buy Now
-                </button>
-              </Link>
->>>>>>> 8f2f0aff7bb3f0cbd0cdfb996feb5b6667023d91
             </div>
           </div>
         ))}
