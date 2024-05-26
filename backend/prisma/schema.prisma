@@ -37,8 +37,7 @@ model Company {
   cap         Float?
   price       Float?
   pe          Float?
-  isin        String?       @unique
-  type        String?
+  about       String
   Transaction Transaction[]
 }
 
