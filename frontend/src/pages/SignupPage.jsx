@@ -33,7 +33,9 @@ function Signup()
     
                     // Assuming the token is in the response data
                     const token = response.data.token;
+                    const username = response.data.username;
                     localStorage.setItem('token', token);
+                    localStorage.setItem("username", username);
     
                     // Navigate to another page or show a success message
                     navigate('/'); // Change this to your desired route
