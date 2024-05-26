@@ -3,8 +3,12 @@
       "sourceMap": true,
       "outDir": "dist",
       "lib": ["esnext"],
+<<<<<<< HEAD
+      "esModuleInterop": true
+=======
       "esModuleInterop": true,
       "allowJs": true
+>>>>>>> 8f2f0aff7bb3f0cbd0cdfb996feb5b6667023d91
     }
 }
   
