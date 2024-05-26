@@ -60,7 +60,7 @@ function Dashboard() {
             <Container className="mt-5">
                 <Row>
                     <Col>
-                    {CompanyData.map((data) =>{
+                    {CompanyData.map((data) =>(
                         <Card>
                                 <Card.Body>
                                     <Card.Title>{data.cname}</Card.Title>
@@ -68,7 +68,7 @@ function Dashboard() {
                                         Current Price: ₹{data.cprice}
                                     </Card.Text>
                                     <Card.Text>
-                                        Number: {data.cnum}
+                                        Number:{data.cnum}
                                     </Card.Text>
                                     <Card.Text>
                                         <button variant="outline-dark">
@@ -77,7 +77,7 @@ function Dashboard() {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                    })}
+                    ))}
                     </Col>
                 </Row>
             </Container>
