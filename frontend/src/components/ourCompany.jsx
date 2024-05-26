@@ -1,8 +1,10 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Foot from "./Footer";
 import styles from "./ourCompany.module.css";
 import { CiSearch } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 function OurCompany() {
   const CompanyData = [
     {
@@ -63,6 +65,35 @@ function OurCompany() {
     },
   ];
 
+   const [username, setUsername] = useState(null);
+   const navigate = useNavigate();
+
+   useEffect(() => {
+     const storedUsername = localStorage.getItem("username");
+     if (storedUsername) {
+       setUsername(storedUsername);
+     }
+   }, []);
+
+   const handleLoginClick = () => {
+     navigate("/login");
+   };
+
+   const handleSignupClick = () => {
+     navigate("/signup");
+   };
+
+   const handleDashboardClick = () => {
+     navigate("/dashboard");
+   };
+
+   const handleLogoutClick = () => {
+     localStorage.removeItem("username");
+     localStorage.removeItem("token");
+     setUsername(null);
+     navigate("/");
+   };
+
   return (
     <div
       style={{
@@ -85,17 +116,45 @@ function OurCompany() {
           />
         </div>
         <div className={`${styles.btncontainer}`}>
-          <Link to="/login">
-            <button type="button" className="m-1 btn btn-outline-light btn-sm">
-              Log In
-            </button>
-          </Link>
-
-          <Link to="/signup">
-            <button type="button" className="m-1 btn btn-outline-light btn-sm">
-              Sign Up
-            </button>
-          </Link>
+          {username ? (
+            <>
+              <Button
+                variant="outline-light"
+                className="m-1"
+                size="sm"
+                onClick={handleDashboardClick}
+              >
+                {username}
+              </Button>
+              <Button
+                variant="outline-light"
+                className="m-1"
+                size="sm"
+                onClick={handleLogoutClick}
+              >
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="outline-light"
+                className="m-1"
+                size="sm"
+                onClick={handleLoginClick}
+              >
+                Log In
+              </Button>
+              <Button
+                variant="outline-light"
+                className="m-1"
+                size="sm"
+                onClick={handleSignupClick}
+              >
+                Sign Up
+              </Button>
+            </>
+          )}
         </div>
       </div>
       <div className={`${styles.container1}`}>
