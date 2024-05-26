@@ -41,18 +41,15 @@
 }
 .inputfield{
  border-radius: 8px; 
- background-color: #212529;
- border: solid black;
- color: whitesmoke;
+ background-color: white;
+ color: black;
 }
 .inputfield1{
   font-size: 28px;
   border-radius: 8px;
-  background-color: #212529;
-  border: solid black;
-  color: whitesmoke;
+  background-color: white;
+  color: black;
   width: 348px;
-  height: 50px;
 }
 .inputfield::-webkit-inner-spin-button {
   -webkit-appearance: none;
