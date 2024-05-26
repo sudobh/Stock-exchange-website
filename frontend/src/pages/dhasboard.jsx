@@ -6,6 +6,23 @@ import Navibar from '../components/Navbar';
 import Foot from '../components/Footer';
 
 function Dashboard() {
+    const CompanyData = [
+        {
+          cname: "Bira",
+          cprice: "160",
+          cnum: 10,
+        },
+        {
+          cname: "GKN Driveline",
+          cprice: "160",
+          cnum: 10,
+        },
+        {
+          cname: "Mohan Meakin",
+          cprice: "160",
+          cnum: 10,
+        }
+    ];
     const [userData, setUserData] = useState(null);
     const [error, setError] = useState(null);
 
@@ -42,19 +59,25 @@ function Dashboard() {
             <Navibar />
             <Container className="mt-5">
                 <Row>
-                    <Col md={{ span: 6, offset: 3 }}>
+                    <Col>
+                    {CompanyData.map((data) =>{
                         <Card>
-                            <Card.Header>Dashboard</Card.Header>
-                            <Card.Body>
-                                <Card.Title>{userData.username}</Card.Title>
-                                <Card.Text>
-                                    <strong>Demat Account:</strong> {userData.demat}<br />
-                                    <strong>Email:</strong> {userData.email}<br />
-                                    <strong>User ID:</strong> {userData.id}<br />
-                                    <strong>Account Created At:</strong> {new Date(userData.created_at).toLocaleString()}<br />
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
+                                <Card.Body>
+                                    <Card.Title>{data.cname}</Card.Title>
+                                    <Card.Text>
+                                        Current Price: ₹{data.cprice}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        Number: {data.cnum}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <button variant="outline-dark">
+                                            Sell
+                                        </button>
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                    })}
                     </Col>
                 </Row>
             </Container>
