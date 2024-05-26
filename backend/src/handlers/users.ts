@@ -61,3 +61,28 @@ export const signIn = async (req, res) => {
         res.json({error: "couldn't sign in due to some error"})
     }
 }
+
+
+export const getUser = async (req, res) => {
+    try {
+        const user = await prisma.user.findUnique(
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+        res.json({
+            username: user.username,
+            demat: user.demat,
+            email: user.email,
+            id: user.id,
+            created_at: user.createdAt
+        })
+    }
+    catch (e) {
+        console.log(e)
+        res.status(400)
+        res.json({error: "couldn't get user details"})
+    }
+}

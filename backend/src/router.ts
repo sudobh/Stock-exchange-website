@@ -1,4 +1,5 @@
 import { Router } from "express"
+import { getUser } from "./handlers/users"
 
 const router = Router()
 
@@ -6,14 +7,14 @@ const router = Router()
 /**
  * COMPANY
  */
-router.get('/company', (req, res) => {
-    res.status(200)
-    res.json({ world: "bye" })
-})
+router.get('/company', () => {})
 router.get('/company/:id', () => { })
 router.put('/company/:id', () => { })
 router.post('/company', () => { })
-router.delete('/product/:id', () => { })
+
+router.get('/user/:id',getUser)
+
+
 
 
 export default router
