@@ -22,7 +22,7 @@ function Adminpage() {
           <div className={`${styles.inputcontainer} row`}>
             <div className="col-6">
               <label htmlFor="MarketCapitalisation">
-                Market Capitalisation(in cr.₹){" "}
+                Market Capitalisation(in cr.₹)
               </label>
             </div>
             <div className="col-6">
