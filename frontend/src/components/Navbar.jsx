@@ -36,7 +36,7 @@ function Navibar() {
     return (
         <Navbar bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="#home" className="me-auto">Unlisted Stock Exchange</Navbar.Brand>
+                <Navbar.Brand href="/" className="me-auto">Unlisted Stock Exchange</Navbar.Brand>
                 <Nav className="ms-auto">
                     {username ? (
                         <>

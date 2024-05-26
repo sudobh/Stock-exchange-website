@@ -5,6 +5,7 @@ import Minus from "../assets/minus.png";
 import Plus from "../assets/plus.png";
 import { useLocation } from 'react-router-dom';
 import { Container,Row,Col, Button,Image } from "react-bootstrap";
+import axios from "axios";
 function Company()
 {
     const location = useLocation();
@@ -17,6 +18,32 @@ function Company()
         if(count>0)
         setCount(count-1);
     }
+    const handleInvest = async () => {
+        const investmentData = {
+            quantity: count,
+            price: parseInt(companyData.cprice),
+            userId: localStorage.getItem("uid"),
+            companyId : "clwnljmzd0001kod8mp9zmvnw"
+        };
+
+        try {
+            const token = localStorage.getItem("token")
+            const response = await axios.post('http://localhost:3001/api/buystocks', investmentData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            if (response.status === 201) {
+                alert("Investment successful");
+            } else {
+                alert(`Failed to invest: ${response.statusText}`);
+            }
+        } catch (error) {
+            alert(`Error: ${error.message}`);
+        }
+    };
+
     return(
         <div>
         <Navibar />
@@ -59,7 +86,7 @@ function Company()
                         </Row>
                         <Row>
                         <Col xs={4} className="mb-2">
-                        <Button variant="outline-dark">Invest</Button>
+                        <Button variant="outline-dark" onClick={handleInvest}>Invest</Button>
                         </Col>
                         </Row>
                         </Col>
