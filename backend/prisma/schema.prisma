@@ -14,10 +14,41 @@ datasource db {
 }
 
 model User {
- id String @id @default(uuid())
- createdAt DateTime @default(now())
- username String @unique
- password String
- email String @unique
- demat Int @unique
+  id          String        @id @default(uuid())
+  createdAt   DateTime      @default(now())
+  username    String        @unique
+  password    String
+  email       String        @unique
+  demat       Int           @unique
+  Transaction Transaction[]
+}
+
+model Admin {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String
+  name     String
+  username String @unique
+}
+
+model Company {
+  id          String        @id @default(cuid()) // Using string for id
+  name        String?
+  cap         Float?
+  price       Float?
+  pe          Float?
+  isin        String?       @unique
+  type        String?
+  Transaction Transaction[]
+}
+
+model Transaction {
+  id        String   @id @default(cuid()) // Using string for id
+  timestamp DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id]) // Reference to the User model
+  company   Company  @relation(fields: [companyId], references: [id])
+  companyId String
+  quantity  Int
+  price     Float
+  userId    String
 }

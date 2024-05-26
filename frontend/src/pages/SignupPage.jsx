@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import Navibar from "../components/Navbar";
 import Foot from "../components/Footer";
 import {Form,Button, Container, Row, Col} from "react-bootstrap";
+import axios from "axios";
 function Signup()
 {
     const[values,setValues]=React.useState({
@@ -22,9 +23,25 @@ function Signup()
             if (values.password !== values.cpassword) {
                 alert("Password and confirm password do not match");
             } else {
-                // Passwords match, submit the form or perform any other action
-                // For example, you can send the form data to an API
-                console.log("Form submitted:", values);
+                try {
+                    const response = await axios.post('http://localhost:3001/signup', {
+                        username: values.name,
+                        email: values.email,
+                        demat: parseInt(values.d_mat),
+                        password: values.password
+                    });
+    
+                    // Assuming the token is in the response data
+                    const token = response.data.token;
+                    localStorage.setItem('token', token);
+    
+                    // Navigate to another page or show a success message
+                    navigate('/'); // Change this to your desired route
+                } catch (error) {
+                    console.error("There was an error submitting the form:", error);
+                    alert("An error occurred while signing up. Please try again.");
+                }
+                
             }
         }
     return(
