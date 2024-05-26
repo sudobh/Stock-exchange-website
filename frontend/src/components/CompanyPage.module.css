@@ -1,0 +1,28 @@
+.container1{
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.name{
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.about{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.foot{
+  align-self:baseline;
+}
+.imgcontainer{
+  border-radius: 6px;
+  width: 250px;
+  height: 250px;
+}

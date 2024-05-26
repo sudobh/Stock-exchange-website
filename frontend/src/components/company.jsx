@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styles from "./company.module.css";
 import ShowMoreButton from "./showMore";
-import { Link } from "react-router-dom";
 function Company() {
   const Cdata = [
     {
@@ -44,14 +43,6 @@ function Company() {
               </span>
             </div>
             <div>
-              <Link to="/company">
-                <button
-                  type="button"
-                  className={` ${styles.buy} btn btn-success`}
-                >
-                  Buy Now
-                </button>
-              </Link>
             </div>
           </div>
         ))}

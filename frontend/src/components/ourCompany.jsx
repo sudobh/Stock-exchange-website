@@ -1,10 +1,8 @@
 import React,{ useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Foot from "./Footer";
 import styles from "./ourCompany.module.css";
-import { CiSearch } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Container, Nav, Navbar, Button } from "react-bootstrap";
 function OurCompany() {
   const CompanyData = [
     {
@@ -106,61 +104,56 @@ function OurCompany() {
         color: "white",
       }}
     >
-      <div className={`${styles.outercontainer}`}>
-        <div className={`${styles.companynamecontainer}`}>
-          Unlisted Stock Exchange
-        </div>
-        <div className={`${styles.search_bar}`}>
-          <div className={`${styles.search_icon}`}>
-            <CiSearch />
-          </div>
-          <input
-            placeholder="Search an company"
-            className={`${styles.search_input}`}
-          />
-        </div>
-        <div className={`${styles.btncontainer}`}>
-          {username ? (
-            <>
-              <Button
-                variant="outline-light"
-                className="m-1"
-                size="sm"
-                onClick={handleDashboardClick}
-              >
-                {username}
-              </Button>
-              <Button
-                variant="outline-light"
-                className="m-1"
-                size="sm"
-                onClick={handleLogoutClick}
-              >
-                Logout
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                variant="outline-light"
-                className="m-1"
-                size="sm"
-                onClick={handleLoginClick}
-              >
-                Log In
-              </Button>
-              <Button
-                variant="outline-light"
-                className="m-1"
-                size="sm"
-                onClick={handleSignupClick}
-              >
-                Sign Up
-              </Button>
-            </>
-          )}
-        </div>
-      </div>
+      
+        <Navbar bg="dark" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand href="#home" className="me-auto" >
+              Unlisted Stock Exchange
+            </Navbar.Brand>
+            <Nav className="ms-auto">
+              {username ? (
+                <>
+                  <Button
+                    variant="outline-light"
+                    className="m-1"
+                    size="sm"
+                    onClick={handleDashboardClick}
+                  >
+                    {username}
+                  </Button>
+                  <Button
+                    variant="outline-light"
+                    className="m-1"
+                    size="sm"
+                    onClick={handleLogoutClick}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    variant="outline-light"
+                    className="m-1"
+                    size="sm"
+                    onClick={handleLoginClick}
+                  >
+                    Log In
+                  </Button>
+                  <Button
+                    variant="outline-light"
+                    className="m-1"
+                    size="sm"
+                    onClick={handleSignupClick}
+                  >
+                    Sign Up
+                  </Button>
+                </>
+              )}
+            </Nav>
+          </Container>
+        </Navbar>
+        <hr />
       <div className={`${styles.container1}`}>
         <u>
           <h1 className={`${styles.heading}`}>
@@ -191,12 +184,12 @@ function OurCompany() {
               <h6 className={`${styles.valuecontainer}`}>P/E: {data.cpe}</h6>
             </div>
             <div>
-            <button
+              <button
                 type="button"
                 className={`btn btn-success ${styles.buy}`}
                 onClick={() => handleBuyNowClick(data)}
               >
-              Buy Now
+                Buy Now
               </button>
             </div>
           </div>
