@@ -3,11 +3,12 @@ import Navibar from "../components/Navbar";
 import Foot from "../components/Footer";
 import Minus from "../assets/minus.png";
 import Plus from "../assets/plus.png";
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Container,Row,Col, Button,Image } from "react-bootstrap";
 function Company()
 {
-    const { cname, ccap, cprice, cpe, cimg } = useParams();
+    const location = useLocation();
+    const companyData = location.state?.company; // Access the passed data
     const [count,setCount]=React.useState(0);
     const incCount=()=>{
         setCount(count+1);
@@ -22,12 +23,12 @@ function Company()
         <Container className="justify-content-center">
             <Row className="bg-dark-subtle m-3 rounded align-items-center">
                 <Col>
-                    <h3>{cname}</h3>
+                    <h3>{companyData.cname}</h3>
                     <Row className="d-flex justify-content-center">
                         <Col md={6} className="align-items-center">
-                        <Row><h5>Cap: &#x20B9;{ccap}</h5></Row>
-                        <Row><h5>Current Price: &#x20B9;{cprice}</h5></Row>
-                        <Row><h5>P/E: {cpe}</h5></Row>
+                        <Row><h5>Cap: &#x20B9;{companyData.ccap}</h5></Row>
+                        <Row><h5>Current Price: &#x20B9;{companyData.cprice}</h5></Row>
+                        <Row><h5>P/E: {companyData.cpe}</h5></Row>
                         </Col>
                         <Col md={6} className="align-items-center">
                         <Container>
@@ -45,16 +46,16 @@ function Company()
                         </Row>
                         </Container>
                         <Row>
-                            <h5>Total Investment: &#x20B9;{count*cprice}</h5>
+                            <h5>Total Investment: &#x20B9;{count*companyData.cprice}</h5>
                         </Row>
                         <Row>
-                            <h5>Stamp Duty(0.015%): &#x20B9;{0.00015*(count*cprice)}</h5>
+                            <h5>Stamp Duty(0.015%): &#x20B9;{0.00015*(count*companyData.cprice)}</h5>
                         </Row>
                         <Row>
                             <h5>Transaction fee: &#x20B9;</h5>
                         </Row>
                         <Row>
-                            <h5>Total Price: &#x20B9;{(0.00015*(count*cprice))+(count*cprice)}</h5>
+                            <h5>Total Price: &#x20B9;{(0.00015*(count*companyData.cprice))+(count*companyData.cprice)}</h5>
                         </Row>
                         <Row>
                         <Col xs={4} className="mb-2">

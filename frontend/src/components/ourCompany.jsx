@@ -94,6 +94,10 @@ function OurCompany() {
      navigate("/");
    };
 
+   const handleBuyNowClick = (company) => {
+    navigate("/company", { state: { company } });
+  };
+
   return (
     <div
       style={{
@@ -187,14 +191,13 @@ function OurCompany() {
               <h6 className={`${styles.valuecontainer}`}>P/E: {data.cpe}</h6>
             </div>
             <div>
-              <Link to="/company">
-                <button
-                  type="button"
-                  className={` ${styles.buy} btn btn-success`}
-                >
-                  Buy Now
-                </button>
-              </Link>
+            <button
+                type="button"
+                className={`btn btn-success ${styles.buy}`}
+                onClick={() => handleBuyNowClick(data)}
+              >
+              Buy Now
+              </button>
             </div>
           </div>
         ))}
