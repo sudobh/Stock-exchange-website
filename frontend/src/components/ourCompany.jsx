@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navibar from "./Navbar";
 import Foot from "./Footer";
 import styles from "./ourCompany.module.css"
+import { CiSearch } from "react-icons/ci";
 function OurCompany(){
  const CompanyData = [
    {
@@ -40,26 +40,75 @@ function OurCompany(){
      cprice: "5000",
      cpe: "32.5",
    },
+   {
+     cname: "CSK",
+     cimg: "img3.png",
+     ccap: "5770",
+     cprice: "200/-",
+     cpe: "132.5",
+   },
+   {
+     cname: "BOAT",
+     cimg: "img2.png",
+     ccap: "23,667",
+     cprice: "500/-",
+     cpe: "32.5",
+   },
+   {
+     cname: "STUDDS",
+     cimg: "img4.png",
+     ccap: "10,000",
+     cprice: "2500/-",
+     cpe: "232.5",
+   },
  ];
+
   
   return (
-    <>
-      <Navibar />
-
-      <div>
-        <div className={`${styles.headingContainer} container text-center`}>
-          <div className="row">
-            <div className="col-sm">Company</div>
-            <div className="col-sm">
-              <input type="text" />
-            </div>
-            <div className="col-sm">Market Cap</div>
-            <div className="col-sm">Current Price</div>
-            <div className="col-sm">P/E</div>
-            <div className="col-sm">Action</div>
-          </div>
+    <div
+      style={{
+        backgroundColor: "#212529",
+        minHeight: "1550px",
+        color: "white",
+      }}
+    >
+      <div className={`${styles.outercontainer}`}>
+        <div className={`${styles.companynamecontainer}`}>
+          Unlisted Stock Exchange
         </div>
+        <div className={`${styles.search_bar}`}>
+          <div className={`${styles.search_icon}`}>
+            <CiSearch />
+          </div>
+          <input
+            placeholder="Search an company"
+            className={`${styles.search_input}`}
+          />
+        </div>
+        <div className={`${styles.btncontainer}`}>
+          <Link to="/login">
+            <button type="button" className="m-1 btn btn-outline-light btn-sm">
+              Log In
+            </button>
+          </Link>
+
+          <Link to="/signup">
+            <button type="button" className="m-1 btn btn-outline-light btn-sm">
+              Sign Up
+            </button>
+          </Link>
+        </div>
+      </div>
+      <div className={`${styles.container1}`}>
+        <u>
+          <h1 className={`${styles.heading}`}>
+            Invest in Top Unlisted Companies
+          </h1>
+        </u>
+      </div>
+      <div className={`${styles.outerrcontainer}`}>
         {CompanyData.map((data) => (
+<<<<<<< HEAD
           <div className={`${styles.companyContainer} container text-center`} key={data.cname}>
             <div className="row">
               <div className={` ${styles.logoContainer} col-sm`}>
@@ -77,13 +126,43 @@ function OurCompany(){
                   Warning
                 </button>
               </div>
+=======
+          <div className={`${styles.innercontainer}`} key={data.cname}>
+            <div className={`${styles.imagecontainer}`}>
+              <img
+                src={data.cimg}
+                alt={data.cname}
+                className={`${styles.image}`}
+              />
+            </div>
+            <div>
+              <h6 className={`${styles.valuecontainer}`}>
+                Name : {data.cname}
+              </h6>
+              <h6 className={`${styles.valuecontainer}`}>
+                Market Cap(in ₹): {data.ccap}cr.
+              </h6>
+              <h6 className={`${styles.valuecontainer}`}>
+                Current Price(in ₹): {data.cprice}
+              </h6>
+              <h6 className={`${styles.valuecontainer}`}>P/E: {data.cpe}</h6>
+            </div>
+            <div>
+              <Link to="/company">
+                <button
+                  type="button"
+                  className={` ${styles.buy} btn btn-success`}
+                >
+                  Buy Now
+                </button>
+              </Link>
+>>>>>>> 8f2f0aff7bb3f0cbd0cdfb996feb5b6667023d91
             </div>
           </div>
         ))}
       </div>
-
       <Foot />
-    </>
+    </div>
   );
 }
 export default OurCompany;

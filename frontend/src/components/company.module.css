@@ -28,11 +28,16 @@
   border: none;
 }
 .outercontainer{
-  width: 75%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   padding-right: 10%;
   padding-left: 10%;
+  overflow-x: auto ;
+  
+}
+.outercontainer::-webkit-scrollbar {
+  display: none;
 }
 .innercontainer{
   border: 2px solid wheat;

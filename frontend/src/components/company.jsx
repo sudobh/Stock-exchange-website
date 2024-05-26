@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styles from "./company.module.css";
 import ShowMoreButton from "./showMore";
+import { Link } from "react-router-dom";
 function Company() {
   const Cdata = [
     {
@@ -27,31 +28,33 @@ function Company() {
       <h1 className={`${styles.heading}`}>Company</h1>
       <hr className={`${styles.line}`} />
       <div className={`${styles.outercontainer}`}>
-          {Cdata.map((data) => (
-            <div className={`${styles.innercontainer}`}>
-              <div className={`${styles.imagecontainer}`}>
-                <img
-                  src={data.cimg}
-                  alt={data.cname}
-                  className={`${styles.image}`}
-                />
-              </div>
-              <div>
-                <p>
-                  <h6 className={`${styles.valuecontainer}`}>{data.cap}</h6>
-                  <h6 className={`${styles.valuecontainer}`}>{data.price}</h6>
-                </p>
-              </div>
-              <div>
+        {Cdata.map((data) => (
+          <div className={`${styles.innercontainer}`} key={data.cname}>
+            <div className={`${styles.imagecontainer}`}>
+              <img
+                src={data.cimg}
+                alt={data.cname}
+                className={`${styles.image}`}
+              />
+            </div>
+            <div>
+              <span>
+                <h6 className={`${styles.valuecontainer}`}>{data.cap}</h6>
+                <h6 className={`${styles.valuecontainer}`}>{data.price}</h6>
+              </span>
+            </div>
+            <div>
+              <Link to="/company">
                 <button
                   type="button"
                   className={` ${styles.buy} btn btn-success`}
                 >
                   Buy Now
                 </button>
-              </div>
+              </Link>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
       <ShowMoreButton />
       <hr />
