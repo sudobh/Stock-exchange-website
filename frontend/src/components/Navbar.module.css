@@ -1,0 +1,84 @@
+.navbar {
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+    background-color: rgba(33, 37, 41, 0.9) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: white !important;
+}
+
+.brandHighlight {
+    color: #4e73df;
+}
+
+.navLink {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    margin: 0 0.75rem;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.2s ease;
+}
+
+.navLink:hover {
+    color: white !important;
+}
+
+.authButton {
+    border-radius: 50px !important;
+    padding: 0.5rem 1.25rem !important;
+    font-weight: 500;
+    transition: all 0.2s ease !important;
+}
+
+.userDropdown {
+    border-radius: 50px !important;
+    padding: 0.5rem 1.25rem !important;
+    display: flex;
+    align-items: center;
+}
+
+.dropdownMenu {
+    border: none;
+    padding: 0.5rem;
+    background-color: rgba(33, 37, 41, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdownItem {
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 4px;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+    background-color: rgba(78, 115, 223, 0.2) !important;
+    color: white !important;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        background-color: #212529 !important;
+    }
+    
+    .navLink {
+        margin: 0.25rem 0;
+        padding: 0.75rem 1rem !important;
+    }
+    
+    .authButton {
+        margin: 0.5rem 0 !important;
+        width: 100%;
+    }
+}

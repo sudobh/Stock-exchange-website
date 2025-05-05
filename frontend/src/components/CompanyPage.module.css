@@ -1,28 +1,147 @@
-.container1{
-  margin: 20px;
-  padding: 20px;
+.container {
+  --color-primary: #6699ff; 
+  --color-secondary: #a7f0ba; 
+  --color-dark: #f8f9fa; 
+  --color-light: #343a40;
+  --color-border: #495057; 
+  --shadow-sm: 0 0.15rem 0.35rem rgba(255, 255, 255, 0.1); 
+}
+body {
+  background-color: #212529;
+}
+.companyDescription{
+  color: white;
+}
+.companyContainer {
+  background: #343a40; 
   border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 6rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  border: 1px solid #495057; 
+}
+.investmentContainer{
+  color: white;
+  margin-bottom: 40px;
+}
+.detailRow{
+  padding-top: 30px;
+}
+.companyHeader {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  align-self: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
-.name{
-  font-size: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+@media (min-width: 768px) {
+  .companyHeader {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
-.about{
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-.foot{
-  align-self:baseline;
-}
-.imgcontainer{
-  border-radius: 6px;
+
+.companyImage {
   width: 250px;
   height: 250px;
+  border-radius: 8px;
+  object-fit: contain;
+  border: 1px solid var(--color-border);
+  padding: 0.5rem;
+  background-color: #212529; 
+}
+
+.companyName {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-dark); 
+  margin-bottom: 1rem;
+}
+
+.companyAbout {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #adb5bd;
+}
+
+.investmentContainer {
+  background: #343a40; 
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  border: 1px solid #495057; 
+}
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-dark); 
+}
+
+.detailRow strong {
+  color: #f8f9fa; 
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.controlButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controlButton:hover {
+  background: var(--color-primary);
+  color: #212529; 
+}
+.quantityDisplay {
+  font-size: 1.5rem;
+  min-width: 50px;
+  text-align: center;
+  color: var(--color-dark); 
+}
+
+.investButton {
+  background-color: var(--color-primary);
+  color: #212529; 
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.investButton:hover {
+  background-color: #5280e5; 
+}
+
+.totalPrice {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark); 
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-primary);
 }

@@ -1,55 +1,54 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import styles from "./company.module.css";
-import ShowMoreButton from "./showMore";
+import React from 'react';
+import styles from './company.module.css';
+import ShowMoreButton from './showMore';
+import { companyData } from '../assets/companyData.js';
 function Company() {
-  const Cdata = [
-    {
-      cname: "boat",
-      cimg: "img2.png",
-      cap: "Market Cap(in cr.): ₹ 12,334",
-      price: "Current Price: ₹ 400",
-    },
-    {
-      cname: "studds",
-      cimg: "img4.png",
-      cap: "Market Cap(in cr.): ₹ 11,334",
-      price: "Current Price: ₹ 200",
-    },
-    {
-      cname: "csk",
-      cimg: "img3.png",
-      cap: "Market Cap(in cr.): ₹ 102,334",
-      price: "Current Price: ₹ 1400",
-    },
-  ];
+ 
+
   return (
-    <div className={`${styles.container1}`}>
-      <h1 className={`${styles.heading}`}>Company</h1>
-      <hr className={`${styles.line}`} />
-      <div className={`${styles.outercontainer}`}>
-        {Cdata.map((data) => (
-          <div className={`${styles.innercontainer}`} key={data.cname}>
-            <div className={`${styles.imagecontainer}`}>
+    <section className={styles.companySection}>
+      <div className={styles.sectionHeader}>
+        <h2 className={styles.sectionTitle}>Featured Companies</h2>
+        <p className={styles.sectionSubtitle}>Invest in high-growth unlisted companies</p>
+      </div>
+      
+      <div className={styles.companiesGrid}>
+        {companyData.slice(0, 3).map((company) => (
+          <div className={styles.companyCard} key={company.id}>
+            <div className={styles.companyLogo}>
               <img
-                src={data.cimg}
-                alt={data.cname}
-                className={`${styles.image}`}
+                src={company.companyLogo}
+                alt={company.companyName}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/company-placeholder.png';
+                }}
               />
             </div>
-            <div>
-              <span>
-                <h6 className={`${styles.valuecontainer}`}>{data.cap}</h6>
-                <h6 className={`${styles.valuecontainer}`}>{data.price}</h6>
-              </span>
-            </div>
-            <div>
+            <div className={styles.companyInfo}>
+              <h3 className={styles.companyName}>{company.companyName}</h3>
+              <div className={styles.companyDetails}>
+                <div className={styles.detailItem}>
+                  <span className={styles.detailLabel}>Market marketCapitalisation</span>
+                  <span className={styles.detailValue}>₹{company.marketCapitalisation} cr</span>
+                </div>
+                <div className={styles.detailItem}>
+                  <span className={styles.detailLabel}>Current stockPrice</span>
+                  <span className={styles.detailValue}>₹{company.stockPrice}</span>
+                </div>
+                <div className={styles.detailItem}>
+                  <span className={styles.detailLabel}>P/E Ratio</span>
+                  <span className={styles.detailValue}>{company.peRatio}</span>
+                </div>
+
+              </div>
             </div>
           </div>
         ))}
       </div>
+      
       <ShowMoreButton />
-      <hr />
-    </div>
+    </section>
   );
 }
 

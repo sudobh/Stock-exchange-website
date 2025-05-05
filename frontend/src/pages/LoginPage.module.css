@@ -1,0 +1,86 @@
+.loginPage {
+    display: flex;
+    flex-direction: column;
+    background-color: #212529;
+    color: white;
+}
+
+.loginContainer {
+    flex: 1;
+    padding: 4rem 0 2rem 0;
+    display: center;
+    align-items: center;
+}
+
+.loginCard {
+    background-color: #343a40;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #495057;
+    color: white;
+    width: 70ch;
+    padding: 2rem;
+}
+
+.loginButton {
+    background-color: #4e73df;
+    border: none;
+    padding: 0.75rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.loginButton:hover {
+    background-color: #3a5bc7;
+    transform: translateY(-2px);
+}
+
+.link {
+    color: #4e73df;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #3a5bc7;
+    text-decoration: underline;
+}
+
+.formControl {
+    background-color: #495057 !important;
+    border-color: #6c757d !important;
+    color: white !important;
+    padding: 0.75rem 1rem !important;
+    height: auto !important;
+}
+
+.formControl:focus {
+    background-color: #495057 !important;
+    border-color: #4e73df !important;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25) !important;
+    color: white !important;
+}
+
+.formLabel {
+    color: #adb5bd !important;
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.invalidFeedback {
+    color: #ff6b6b !important;
+    margin-top: 0.25rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .loginContainer {
+        padding: 1rem !important;
+    }
+    
+    .loginCard {
+        padding: 1.5rem !important;
+    }
+}

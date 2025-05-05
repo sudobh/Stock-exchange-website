@@ -1,159 +1,172 @@
-import React from "react";
+import React, { useState } from "react";
 import Navibar from "../components/Navbar";
 import Foot from "../components/Footer";
-import Minus from "../assets/minus.png";
-import Plus from "../assets/plus.png";
-import { useLocation } from "react-router-dom";
-import { Container, Row, Col, Button, Image } from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Button, Image } from "react-bootstrap";
 import axios from "axios";
-
 import styles from "./CompanyPage.module.css";
-function Company() {
-  const location = useLocation();
-  const companyData = location.state?.company; // Access the passed data
-  const [count, setCount] = React.useState(0);
-  const incCount = () => {
-    setCount(count + 1);
-  };
-  const decCount = () => {
-    if (count > 0) setCount(count - 1);
-  };
-  const handleInvest = async () => {
-    const investmentData = {
-      quantity: count,
-      price: parseInt(companyData.cprice),
-      userId: localStorage.getItem("uid"),
-      companyId: "clwnljmzd0001kod8mp9zmvnw",
-    };
 
+function CompanyPage() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const companyData = location.state?.company;
+  const [quantity, setQuantity] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
+  if (!companyData) {
+    navigate("/");
+    return null;
+  }
+
+  const incrementQuantity = () => setQuantity(prev => prev + 1);
+  const decrementQuantity = () => setQuantity(prev => (prev > 0 ? prev - 1 : 0));
+
+  const handleInvest = async () => {
+    if (quantity === 0) {
+      alert("Please select at least 1 share");
+      return;
+    }
+
+    if (!localStorage.getItem("token")) {
+      alert("Please login to invest");
+      navigate("/login");
+      return;
+    }
+
+    setIsLoading(true);
+    
     try {
-      const token = localStorage.getItem("token");
+      const investmentData = {
+        quantity,
+        price: parseInt(companyData.stockPrice),
+        userId: localStorage.getItem("uid"),
+        companyId: "clwnljmzd0001kod8mp9zmvnw",
+      };
+
       const response = await axios.post(
         "http://localhost:3001/api/buystocks",
         investmentData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
 
       if (response.status === 201) {
-        alert("Investment successful");
-      } else {
-        alert(`Failed to invest: ${response.statusText}`);
+        alert("Investment successful!");
+        setQuantity(0);
       }
     } catch (error) {
-      alert(`Error: ${error.message}`);
+      console.error("Investment error:", error);
+      alert(`Investment failed: ${error.response?.data?.message || error.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
+  const calculateTotal = () => {
+    const basePrice = quantity * companyData.stockPrice;
+    const stampDuty = basePrice * 0.00015;
+    const transactionFee = 20; // Example fixed fee
+    return {
+      basePrice,
+      stampDuty,
+      transactionFee,
+      total: basePrice + stampDuty + transactionFee
+    };
+  };
+
+  const totals = calculateTotal();
+
   return (
-    <div>
+    <div className={styles.container}>
       <Navibar />
-      <center>
-        <Container className={`${styles.container1} bg-dark-subtle `}>
-          <div className="row g-0 justify-content-center">
-            <div className="col-md-4">
-              <img
-                src={companyData.cimg}
-                className={`${styles.imgcontainer} img-fluid rounded-start`}
-                alt={companyData.cname}
-              />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className={`${styles.name} card-title`}>
-                  {companyData.cname}
-                </h5>
-                <p className={`${styles.about} card-text`}>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
+      
+      <div className={styles.companyContainer}>
+        <div className={styles.companyHeader}>
+          <Image
+            src={companyData.companyLogo}
+            className={styles.companyImage}
+            alt={companyData.companyName}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "/placeholder-company.png";
+            }}
+          />
+          <div>
+            <h1 className={styles.companyName}>{companyData.companyName}</h1>
+            <p className={styles.companyDescription}>
+              {companyData.about || "This company is a leading player in its sector with strong growth potential and a proven track record of performance."}
+            </p>
           </div>
-        </Container>
-      </center>
+        </div>
+      </div>
 
-      <Container className="justify-content-center">
-        <Row className="bg-dark-subtle m-3 rounded      align-items-center">
-          <Col>
-            <h3>{companyData.cname}</h3>
-            <Row className="d-flex justify-content-center">
-              <Col md={6} className="align-items-center">
-                <Row>
-                  <h5>Cap: &#x20B9;{companyData.ccap}</h5>
-                </Row>
-                <Row>
-                  <h5>Current Price: &#x20B9;{companyData.cprice}</h5>
-                </Row>
-                <Row>
-                  <h5>P/E: {companyData.cpe}</h5>
-                </Row>
-              </Col>
-              <Col md={6} className="align-items-center">
-                <Container>
-                  <Row>
-                    <Col xs={1} className="text-center">
-                      <Button variant="outline-light" onClick={decCount}>
-                        <Image
-                          style={{ height: "10px", width: "10px" }}
-                          src={Minus}
-                        />
-                      </Button>
-                    </Col>
-                    <Col xs={2} className="text-center">
-                      <h5>{count}</h5>
-                    </Col>
-                    <Col xs={1} className="text-center">
-                      <Button variant="outline-light" onClick={incCount}>
-                        <Image
-                          style={{ height: "10px", width: "10px" }}
-                          src={Plus}
-                        />
-                      </Button>
-                    </Col>
-                  </Row>
-                </Container>
-                <Row>
-                  <h5>
-                    Total Investment: &#x20B9;{count * companyData.cprice}
-                  </h5>
-                </Row>
-                <Row>
-                  <h5>
-                    Stamp Duty(0.015%): &#x20B9;
-                    {0.00015 * (count * companyData.cprice)}
-                  </h5>
-                </Row>
-                <Row>
-                  <h5>Transaction fee: &#x20B9;</h5>
-                </Row>
-                <Row>
-                  <h5>
-                    Total Price: &#x20B9;
-                    {0.00015 * (count * companyData.cprice) +
-                      count * companyData.cprice}
-                  </h5>
-                </Row>
-                <Row>
-                  <Col xs={4} className="mb-2">
-                    <Button variant="outline-dark" onClick={handleInvest}>
-                      Invest
-                    </Button>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+      <div className={styles.investmentContainer}>
+        <h2>Investment Details</h2>
+        
+        <div className={styles.detailRow}>
+          <span>Market Cap:</span>
+          <span>₹{companyData.marketCapitalisation} cr</span>
+        </div>
+        <div className={styles.detailRow}>
+          <span>Current Price:</span>
+          <span>₹{companyData.stockPrice}</span>
+        </div>
+        <div className={styles.detailRow}>
+          <span>P/E Ratio:</span>
+          <span>{companyData.peRatio}</span>
+        </div>
 
-      <Foot className={`${styles.foot}`} />
+        <div className={styles.quantityControls}>
+          <button 
+            className={styles.controlButton}
+            onClick={decrementQuantity}
+            disabled={quantity === 0}
+          >
+            -
+          </button>
+          <span className={styles.quantityDisplay}>{quantity}</span>
+          <button 
+            className={styles.controlButton}
+            onClick={incrementQuantity}
+          >
+            +
+          </button>
+          <span style={{ marginLeft: '1rem' }}>Shares</span>
+        </div>
+
+        <div className={styles.detailRow}>
+          <span>Subtotal:</span>
+          <span>₹{totals.basePrice.toFixed(2)}</span>
+        </div>
+        <div className={styles.detailRow}>
+          <span>Stamp Duty (0.015%):</span>
+          <span>₹{totals.stampDuty.toFixed(2)}</span>
+        </div>
+        <div className={styles.detailRow}>
+          <span>Transaction Fee:</span>
+          <span>₹{totals.transactionFee.toFixed(2)}</span>
+        </div>
+
+        <div className={styles.totalPrice}>
+          <span>Total Investment:</span>
+          <span>₹{totals.total.toFixed(2)}</span>
+        </div>
+
+        <Button
+          className={styles.investButton}
+          onClick={handleInvest}
+          disabled={isLoading || quantity === 0}
+        >
+          {isLoading ? "Processing..." : "Invest Now"}
+        </Button>
+      </div>
+
+      <Foot />
     </div>
   );
 }
 
-export default Company;
+export default CompanyPage;

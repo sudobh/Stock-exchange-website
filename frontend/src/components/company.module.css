@@ -1,69 +1,170 @@
-.container1{
-  max-width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+.companySection {
+  padding: 4rem 2rem;
+  background-color: #212529;
+}
+
+.sectionHeader {
   text-align: center;
-  padding-top: 20px;
-  color: white;
- 
+  margin-bottom: 3rem;
 }
-.heading{
-  font-size: 40px;
+
+.sectionTitle {
+  font-size: 2.5rem;
   font-weight: 700;
+  color: #ffffff; /* Changed from #212529 to white for better contrast on dark bg */
+  margin-bottom: 0.5rem;
 }
-.line{
-  height: 2px;
-  background-color: rgb(0, 0, 0);
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  color: #d7dadd; /* Lighter gray for better readability on dark bg */
+  max-width: 700px;
+  margin: 0 auto;
 }
-.explore{
-  margin-top: 50px;
-  font-size: 20px;
-  margin-left: 20px;
-  padding: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-  border-radius: 40px;
-  background-color: white;
-  text-decoration: none;
-  border: none;
+
+.companiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.outercontainer{
-  width: 90%;
+
+.companyCard {
+  background: #33383d;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.companyCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.companyLogo {
+  padding: 2rem;
+  text-align: center;
+  background-color: #33383d;
+}
+
+.companyLogo img {
+  width: 150px;
+  height: 150px;
+  object-fit: fill;
+  border-radius: 0;
+  border: 3px solid #33383d;
+}
+
+.companyInfo {
+  padding: 1.5rem;
+}
+
+.companyName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #c1c9d1;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.companyDetails {
+  margin-bottom: 1.5rem;
+}
+
+.detailItem {
   display: flex;
   justify-content: space-between;
-  padding-right: 10%;
-  padding-left: 10%;
-  overflow-x: auto ;
-  
-}
-.outercontainer::-webkit-scrollbar {
-  display: none;
-}
-.innercontainer{
-  border: 2px solid wheat;
-  border-radius: 20px;
-  min-width: 300px;
-  padding: 20px;
-  margin: 20px;
-}
-.imagecontainer{
-  margin-bottom: 20px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e9ecef;
 }
 
-.image{
-  width: 250px;
-  height:250px;
-  border-radius: 50%;
-  
-}
-.valuecontainer{
-  font-size: 20px;
-  font-weight: 400;
+.detailLabel {
+  font-weight: 500;
+  color: #cbd6de;
 }
 
-.buy{
-  width: 200px;
+.detailValue {
+  font-weight: 600;
+  color: #d2d3d4;
 }
-.slide{
+
+.investButton {
+  display: block;
   width: 100%;
+  padding: 0.75rem;
+  background-color: #212529; /* Changed from #4e73df to match the theme */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.investButton:hover {
+  background-color: #343a40; /* Darker shade for hover */
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  
+  .companiesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.showMoreContainer {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.exploreLink {
+  text-decoration: none;
+}
+
+.exploreButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #212529; /* Changed from #4e73df to match the theme */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.exploreButton:hover {
+  background-color: #343a40; /* Darker shade for hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.arrowIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.exploreButton:hover .arrowIcon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .exploreButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
 }

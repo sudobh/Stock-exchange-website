@@ -47,7 +47,7 @@ function Adminpage() {
 
   return (
     <div className={`${styles.maincontainer}`}>
-      <div className={`${styles.namecontainer}`}>Unlisted Stock Exchange</div>
+      <div className={`${styles.namecontainer}`}> Stock Exchange</div>
       <hr className={`${styles.line}`} />
       <div className={`${styles.formcontainer}`}>
         <form onSubmit={handleSubmit}>

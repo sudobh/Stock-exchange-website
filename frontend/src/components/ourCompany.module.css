@@ -1,106 +1,157 @@
-.search_bar {
-  height: 40px;
-  min-width: 200px;
-  width: 60%;
-  display: flex;
-  align-items: center;
-  border: solid f5f5f6;
-  background-color: #ffffff;
-  border-radius: 6px;
-
+.container {
+  --color-primary: #4e73df;
+  --color-secondary: #1cc88a;
+  --color-dark: #212529;
+  --color-light: #f8f9fa;
+  --color-border: #e3e6f0;
+  --shadow-sm: 0 0.15rem 0.35rem rgba(0, 0, 0, 0.1);
+  --color-grey-card: #495057; /* Added new grey color for cards */
 }
 
-.search_input {
-  background-color: #f5f5f6;
-  color: #696e79;
-  flex-grow: 1;
-  height: 40px;
-  border: 0;
-  border-radius: 0 6px 6px 0;
-
-
+/* Navigation & Layout */
+.navContainer {
+  background-color: var(--color-dark);
+  padding: 1rem 0;
+  box-shadow: var(--shadow-sm);
 }
 
-.search_icon {
-  height: 20px;
-  padding: 10px;
-  box-sizing: content-box;
-  background-color: #f5f5f6;
-  color: #282c3f;
-  font-weight: 600;
-  border-radius: 6px 0 0 6px;
-
-}
-.outercontainer{
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid black;
-  padding: 20px;
-  align-items: center;
-}
-.btncontainer{
- width: 20%;
- display: flex;
- justify-content: space-evenly;
-}
-.companynamecontainer{
-  font-size: 20px;
-  width: 20%;
-}
-.outerrcontainer {
+.outerContainer {
   width: 90%;
-  display: flex;
-  justify-content: space-between;
-   margin-left: 5%;
-   margin-right: 5%;
-   margin-bottom: 5%;
-  flex-wrap: wrap;
+  margin: 0 auto 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-.innercontainer {
-  border: 2px solid wheat;
-  border-radius: 20px;
-  min-width: 300px;
-  padding: 20px;
-  margin: 20px;
+/* Company Cards - Updated section */
+.companyCard {
+  background: var(--color-grey-card); /* Changed to new grey variable */
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--color-light); /* Changed text color to light for contrast */
 }
 
-.imagecontainer {
-  margin-bottom: 20px;
+.companyCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2); /* Darker shadow for better visibility */
 }
 
-.image {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-
+.companyImage {
+  width: 150px;
+  height: 150px;
+  object-fit: fill;
+  margin-bottom: 1.5rem;
+  border: 3px solid var(--color-primary);
+  padding: 0.5rem;
+  background-color: var(--color-light); /* Added light background for image */
 }
 
-.valuecontainer {
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.buy {
-  width: 200px;
-}
-
-.slide {
+.companyInfo {
   width: 100%;
+  margin-bottom: 1.5rem;
 }
-.heading {
-  font-size: 60px;
-  font-weight: 700;
+
+.companyInfo h6 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--color-light); /* Changed to light color */
 }
-.container1 {
-  max-width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 30px;
+
+.companyInfo h6 strong {
+  color: white; /* Even brighter for important text */
+}
+
+/* Buttons */
+.buyButton {
+  width: 100%;
+  background-color: var(--color-primary);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   color: white;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.buyButton:hover {
+  background-color: #2e59d9;
+}
+
+/* Header */
+.pageHeader {
+  text-align: center;
+  padding: 6rem 0;
+  background-color: var(--color-dark); /* Added dark background */
+  color: white;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.pageTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--color-secondary);
+}
+
+/* Search & Navigation */
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.searchBar {
+  width: 60%;
+  max-width: 600px;
+  display: flex;
+}
+
+.searchInput {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.searchButton {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .outerContainer {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+  
+  .pageTitle {
+    font-size: 2rem;
+  }
+  
+  .searchBar {
+    width: 90%;
+  }
 }

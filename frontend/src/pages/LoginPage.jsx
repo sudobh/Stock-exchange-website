@@ -1,72 +1,152 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Navibar from "../components/Navbar";
 import Foot from "../components/Footer";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Container, Row, Col, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
+import styles from './LoginPage.module.css';
 
-function Login() {
-    const [values, setValues] = React.useState({
+function LoginPage() {
+    const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
-
-    const handleChange = (event) => {
-        setValues({ ...values, [event.target.name]: event.target.value });
-    };
-
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [validated, setValidated] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        
+        if (!form.checkValidity()) {
+            e.stopPropagation();
+            setValidated(true);
+            return;
+        }
+
+        setLoading(true);
+        setError(null);
+
         try {
             const response = await axios.post('http://localhost:3001/signin', {
-                email: values.email,
-                password: values.password
+                email: formData.email,
+                password: formData.password
             });
 
-            // Assuming the token is in the response data
-            const token = response.data.token;
-            const username = response.data.username;
-            const uid = response.data.id
-            localStorage.setItem('token', token);
-            localStorage.setItem('username', username);
-            localStorage.setItem('uid', uid);
-            alert("login successful");
-            function delay(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-            await delay(1000);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('username', response.data.username);
+            localStorage.setItem('uid', response.data.id);
 
-            // Navigate to another page or show a success message
-            navigate('/'); // Change this to your desired route
-        } catch (error) {
-            console.error("There was an error logging in:", error);
-            alert("Invalid email or password. Please try again.");
+            setError({ variant: 'success', message: 'Login successful! Redirecting...' });
+            setTimeout(() => navigate('/dashboard'), 1500);
+            
+        } catch (err) {
+            console.error("Login error:", err);
+            const errorMsg = err.response?.data?.message || 
+                            "Invalid email or password. Please try again.";
+            setError({ variant: 'danger', message: errorMsg });
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <div>
+        <div className={styles.loginPage}>
             <Navibar />
+            
+            <Container className={styles.loginContainer}>
+                <Row className="justify-content-center">
+                    <Col md={10} lg={8} xl={6}> {/* Wider column */}
+                        <div className={styles.loginCard}>
+                            <h2 className="text-center mb-3">Sign In</h2> {/* Shorter title */}
+                            
+                            {error && (
+                                <Alert variant={error.variant} className="mt-3">
+                                    {error.message}
+                                </Alert>
+                            )}
 
-            <Container>
-                <Row className="d-flex justify-content-center">
-                    <Col md={6} className="bg-dark-subtle mt-3 rounded align-items-center">
-                        <Form className="m-3" onSubmit={handleSubmit}>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" name="email" required onChange={handleChange} />
-                            </Form.Group>
+                            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                                <Form.Group className="mb-3" controlId="formEmail">
+                                    <Form.Label className={styles.formLabel}>Email Address</Form.Label>
+                                    <Form.Control
+                                        className={styles.formControl}
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                        autoFocus
+                                    />
+                                    <Form.Control.Feedback type="invalid" className={styles.invalidFeedback}>
+                                        Please provide a valid email.
+                                    </Form.Control.Feedback>
+                                </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" name="password" required onChange={handleChange} />
-                            </Form.Group>
-                            <Button variant="btn btn-dark" type="submit">
-                                Sign In
-                            </Button>
-                        </Form>
+                                <Form.Group className="mb-3" controlId="formPassword">
+                                    <Form.Label className={styles.formLabel}>Password</Form.Label>
+                                    <Form.Control
+                                        className={styles.formControl}
+                                        type="password"
+                                        placeholder="Enter your password"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
+                                        minLength={6}
+                                    />
+                                    <Form.Control.Feedback type="invalid" className={styles.invalidFeedback}>
+                                        Password must be at least 6 characters.
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+
+                                <div className="d-grid mb-2">
+                                    <Button 
+                                        variant="primary" 
+                                        type="submit" 
+                                        disabled={loading}
+                                        className={styles.loginButton}
+                                    >
+                                        {loading ? (
+                                            <>
+                                                <Spinner
+                                                    as="span"
+                                                    animation="border"
+                                                    size="sm"
+                                                    role="status"
+                                                    aria-hidden="true"
+                                                    className="me-2"
+                                                />
+                                                Signing In...
+                                            </>
+                                        ) : 'Sign In'}
+                                    </Button>
+                                </div>
+
+                                <div className="text-center mt-2">
+                                    <Link to="/forgot-password" className={styles.link}>
+                                        Forgot password?
+                                    </Link>
+                                    <p className="mt-2 text-muted">
+                                        Don't have an account?{' '}
+                                        <Link to="/signup" className={styles.link}>
+                                            Sign up here
+                                        </Link>
+                                    </p>
+                                </div>
+                            </Form>
+                        </div>
                     </Col>
                 </Row>
             </Container>
@@ -76,4 +156,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginPage;

@@ -1,23 +1,33 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
- function Foot()
- {
-    return(
-        <div className="container-fluid bg-dark">
-    <footer className="footer py-3 my-4">
-        <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-            <li className="nav-item"><a href="#" className="nav-link px-2 text-light">Home</a></li>
-            <li className="nav-item"><a href="#" className="nav-link px-2 text-light">Features</a></li>
-            <li className="nav-item"><a href="#" className="nav-link px-2 text-light">Pricing</a></li>
-            <li className="nav-item"><a href="#" className="nav-link px-2 text-light">FAQs</a></li>
-            <li className="nav-item"><a href="#" className="nav-link px-2 text-light">About</a></li>
-        </ul>
-        <p className="text-center text-light">© 2024 Unlisted Stock Exchange</p>
-    </footer>
-</div>
+import { Link } from "react-router-dom";
+import styles from './Footer.module.css';
+function Footer() {
+    return (
+        <div className={`${styles.loginPage} container-fluid`} style={{ 
+            backgroundColor: '#212529',
+            marginTop: 'auto' // Ensures footer stays at bottom
+        }}>
+            <footer className="py-4">
+                <ul className="nav justify-content-center border-bottom pb-3 mb-3" style={{ borderColor: '#495057 !important' }}>
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link px-3 text-light">Home</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link px-3 text-light">Features</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link px-3 text-light">Pricing</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link px-3 text-light">FAQs</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link px-3 text-light">About</Link>
+                    </li>
+                </ul>
+            </footer>
+        </div>
     );
- }
+}
 
-
- export default Foot;
+export default Footer;
