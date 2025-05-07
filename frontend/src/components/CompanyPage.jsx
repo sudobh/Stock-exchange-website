@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navibar from "../components/Navbar";
 import Foot from "../components/Footer";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image, Modal } from "react-bootstrap";
 import axios from "axios";
 import styles from "./CompanyPage.module.css";
 
@@ -13,22 +13,36 @@ function CompanyPage() {
   const [quantity, setQuantity] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [showModal, setShowModal] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalBody, setModalBody] = useState("");
+  const [modalVariant, setModalVariant] = useState("primary");
+
   if (!companyData) {
+    if (showModal) setShowModal(false);
     navigate("/");
     return null;
   }
+
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = (title, body, variant = "primary") => {
+    setModalTitle(title);
+    setModalBody(body);
+    setModalVariant(variant);
+    setShowModal(true);
+  };
 
   const incrementQuantity = () => setQuantity(prev => prev + 1);
   const decrementQuantity = () => setQuantity(prev => (prev > 0 ? prev - 1 : 0));
 
   const handleInvest = async () => {
     if (quantity === 0) {
-      alert("Please select at least 1 share");
+      handleShowModal("Input Required", "Please select at least 1 share to invest.", "warning");
       return;
     }
 
     if (!localStorage.getItem("token")) {
-      alert("Please login to invest");
+      handleShowModal("Authentication Required", "Please login to invest.", "warning");
       navigate("/login");
       return;
     }
@@ -40,7 +54,7 @@ function CompanyPage() {
         quantity,
         price: parseInt(companyData.stockPrice),
         userId: localStorage.getItem("uid"),
-        companyId: "clwnljmzd0001kod8mp9zmvnw",
+        companyId: companyData.id,
       };
 
       const response = await axios.post(
@@ -54,21 +68,35 @@ function CompanyPage() {
       );
 
       if (response.status === 201) {
-        alert("Investment successful!");
+        handleShowModal(
+          "Investment Successful!",
+          `You have successfully invested in ${quantity} share(s) of ${companyData.companyName}.`,
+          "success"
+        );
         setQuantity(0);
+      } else {
+        handleShowModal(
+          "Purchase Notice",
+          response.data.message || "Your purchase is being processed.",
+          "info"
+        );
       }
     } catch (error) {
       console.error("Investment error:", error);
-      alert(`Investment failed: ${error.response?.data?.message || error.message}`);
+      handleShowModal(
+        "Investment Failed",
+        error.response?.data?.message || error.message || "An unexpected error occurred.",
+        "danger"
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
   const calculateTotal = () => {
-    const basePrice = quantity * companyData.stockPrice;
+    const basePrice = quantity * parseFloat(companyData.stockPrice);
     const stampDuty = basePrice * 0.00015;
-    const transactionFee = 20; // Example fixed fee
+    const transactionFee = 20; 
     return {
       basePrice,
       stampDuty,
@@ -165,6 +193,18 @@ function CompanyPage() {
       </div>
 
       <Foot />
+
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton className={modalVariant ? `bg-${modalVariant} text-white` : ''}>
+          <Modal.Title>{modalTitle}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{modalBody}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

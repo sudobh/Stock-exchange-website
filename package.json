@@ -1,0 +1,16 @@
+{
+  "name": "my-project-root",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run start",
+    "dev": "concurrently \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "install:frontend": "npm install --prefix ./frontend",
+    "install:backend": "npm install --prefix ./backend",
+    "install:all": "npm run install:frontend && npm run install:backend",
+    "postinstall": "npm run install:all"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2" 
+  }
+}

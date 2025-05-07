@@ -106,3 +106,35 @@ export const sellStocks = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
+
+export const getTransactions = async (req, res) => {
+    const { userId } = req.query;
+
+    if (!userId) {
+        return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    try {
+        // Check if user exists
+        const user = await prisma.user.findUnique({
+            where: { id: userId },
+        });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const transactions = await prisma.user.findUnique({
+            where: { id: userId },
+            select: {
+                Transaction: true,
+            },
+        });
+
+        res.status(200).json(transactions);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
