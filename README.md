@@ -22,8 +22,7 @@ Follow these steps to set up the project locally:
     cd stock-exchange-website
     ```
 
-2.  **Backend Setup:**
-    * Navigate to the backend directory: `cd backend`
+2.  **Setup:**
     * Install dependencies:
         ```bash
         npm install
@@ -31,22 +30,13 @@ Follow these steps to set up the project locally:
     * Set up environment variables: Create a `.env` file in the backend directory for database connection URL and JWT secret.
     * **Generate Prisma Client:** 
         ```bash
+        cd backend
         npx prisma generate
         ```
     * Run the backend development server:
         ```bash
+        # run this inside stock-exchange-website directory
         npm run dev
-        ```
-
-3.  **Frontend Setup:**
-    * Navigate to the frontend directory 
-    * Install dependencies:
-        ```bash
-        npm install
-        ```
-    * Run the frontend development server:
-        ```bash
-        npm run start
         ```
 
 4.  **Access the application:**
