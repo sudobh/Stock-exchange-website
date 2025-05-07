@@ -66,6 +66,8 @@
 .heroCta {
   display: inline-block;
   padding: 0.8rem 2rem;
+  width: 25%;
+  text-align: center;
   background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
   color: white;
   border-radius: 50px;
