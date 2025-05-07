@@ -196,7 +196,7 @@ const ManualPredictor = ({ companies }) => {
               Predicting...
             </div>
           ) : (
-            'Predict Next Day Stock'
+            'Predict Next Day Price'
           )}
         </button>
       )}
