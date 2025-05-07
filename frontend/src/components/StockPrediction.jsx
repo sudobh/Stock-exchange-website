@@ -196,7 +196,7 @@ const ManualPredictor = ({ companies }) => {
               Predicting...
             </div>
           ) : (
-            'Predict Next Day Stock (Day 4)'
+            'Predict Next Day Stock'
           )}
         </button>
       )}
@@ -209,7 +209,7 @@ const ManualPredictor = ({ companies }) => {
 
       {manualPrediction && (
         <div className={styles.successAlert}>
-          <h3 className={styles.alertTitleSuccess}>Prediction Result (Day 4):</h3>
+          <h3 className={styles.alertTitleSuccess}>Prediction Result:</h3>
           <p className={styles.alertPriceSuccess}>
             ₹{manualPrediction.predicted_price_next_day !== undefined ? manualPrediction.predicted_price_next_day.toFixed(2) : 'Error in prediction format'}
           </p>

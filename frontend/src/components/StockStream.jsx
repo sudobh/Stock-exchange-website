@@ -103,7 +103,7 @@ function App() {
         <Navbar />
 
       <h1 className={styles.title}>
-        Live Stock Stream (Simulated)
+        Live Stock Stream
       </h1>
 
       {selectedStockId && (
