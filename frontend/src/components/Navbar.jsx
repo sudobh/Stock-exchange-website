@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Container, Nav, Navbar, Button, Dropdown } from "react-bootstrap";
-import { PersonFill, BoxArrowRight, PersonPlus, KeyFill, GraphUp } from "react-bootstrap-icons";
+import { PersonFill, BoxArrowRight, PersonPlus, KeyFill, GraphUp, Cpu } from "react-bootstrap-icons"; // Added Cpu icon
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './Navbar.module.css';
+import styles from './Navbar.module.css'; // Assuming you have this CSS module
 
 function CustomNavbar() {
     const [username, setUsername] = useState(null);
@@ -52,6 +52,15 @@ function CustomNavbar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto align-items-center">
+                        {/* New Stock Prediction Button */}
+                        <Nav.Link 
+                            as={Link} 
+                            to="/stock-prediction"  // Route for the prediction page
+                            className="d-flex align-items-center me-3" // Added me-3 for margin like Live Stocks
+                        >
+                            <Cpu className="me-1" /> Stock Prediction 
+                        </Nav.Link>
+
                         <Nav.Link 
                             as={Link} 
                             to="/stock-stream" 

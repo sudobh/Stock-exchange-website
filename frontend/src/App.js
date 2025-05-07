@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard";
 import OurCompany from "./components/ourCompany";
 import Adminpage from "./components/admin";
 import StockStream from "./components/StockStream";
+import StockPrediction from "./components/StockPrediction";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/ShowMoreButton" element={<OurCompany />} />
         <Route path="/admin" element={<Adminpage/>}/>
         <Route path="/stock-stream" element={<StockStream/>} />
+        <Route path="/stock-prediction" element={<StockPrediction/>} />
       </Routes>
     </BrowserRouter>
   );

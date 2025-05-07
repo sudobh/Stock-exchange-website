@@ -1,0 +1,266 @@
+.appContainer {
+    font-family: 'Inter', sans-serif;
+    padding: 1rem 1.5rem;
+    background-color: #111827;
+    min-height: 100vh;
+    color: #f3f4f6;
+    padding-top: calc(60px + 1.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6rem;
+  }
+  
+  .contentWrapper {
+    width: 100%;
+    max-width: 56rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .dataLoadingErrorContainer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #1f2937;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .dataLoadingErrorText {
+    color: #f87171;
+    font-weight: 600;
+  }
+  
+  .manualPredictorContainer {
+    margin: 0 auto 3rem auto;
+    padding: 1.5rem;
+    background-color: #1f2937;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .manualPredictorTitle {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #34d399;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .label {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: #d1d5db;
+    margin-bottom: 0.25rem;
+  }
+  
+  .selectControl {
+    margin-top: 0.25rem;
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    background-color: #374151;
+    color: #f3f4f6;
+    border: 1px solid #4b5563;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .selectControl:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.5);
+  }
+  
+  .priceDisplayGrid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    background-color: #374151;
+  }
+  
+  @media (min-width: 768px) {
+    .priceDisplayGrid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  
+  .priceLabel {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: #9ca3af;
+  }
+  
+  .priceValue {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: #e5e7eb;
+  }
+  
+  .predictButton {
+    width: 100%;
+    background-color: #34d399;
+    color: #111827;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out;
+  }
+  
+  .predictButton:hover {
+    background-color: #2cbfa0;
+  }
+  
+  .predictButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .buttonLoadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spinner {
+    animation: spin 1s linear infinite;
+    margin-left: -0.25rem;
+    margin-right: 0.75rem;
+    height: 1.25rem;
+    width: 1.25rem;
+    color: #111827;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .errorAlert {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #402323;
+    border: 1px solid #f87171;
+    color: #fcdada;
+    border-radius: 0.375rem;
+  }
+  .errorAlert p {
+      margin: 0;
+  }
+  
+  .successAlert {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #103c2e;
+    border: 1px solid #34d399;
+    border-radius: 0.5rem;
+  }
+  
+  .alertTitleSuccess {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: #6ee7b7;
+  }
+  
+  .alertPriceSuccess {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    color: #a7f3d0;
+  }
+  
+  .alertInfo {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #9ca3af;
+  }
+  
+  .alertSubInfo {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+  }
+  
+  .chartContainer {
+    width: 100%;
+    max-width: 56rem;
+    margin: 1.5rem auto 2rem auto;
+    background-color: #1f2937;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 18rem;
+  }
+  
+  @media (min-width: 768px) {
+    .chartContainer {
+      height: 24rem;
+    }
+  }
+  
+  .chartTitle {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+  }
+  
+  .chartContainer text {
+    fill: #9ca3af !important;
+  }
+  
+  .loadingSpinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16rem;
+  }
+  .loadingSpinner {
+    animation: spin 1s linear infinite;
+    height: 4rem;
+    width: 4rem;
+    border-top-width: 4px;
+    border-color: #34d399;
+    border-style: solid;
+    border-radius: 9999px;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  .loadingSpinnerText {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: #d1d5db;
+  }
+  

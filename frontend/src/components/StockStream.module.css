@@ -189,16 +189,15 @@
 .hideOnSmall {
   display: none;
 }
-/* In StockStream.module.css, add this: */
+
 .selectedRow {
-  background-color: #4a5568 !important; /* A slightly different background for selected row */
-  /* You can add other styles like a border or different text color */
+  background-color: #4a5568 !important;
 }
 
-.stockRow:hover { /* Ensure hover is distinct from selected, or combine logic */
+.stockRow:hover { 
   background-color: #374151;
 }
 
-.selectedRow:hover { /* Keep selected style on hover, or make it slightly different */
+.selectedRow:hover { 
   background-color: #525e75 !important;
 }
