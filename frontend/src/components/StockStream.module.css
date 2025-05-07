@@ -4,6 +4,7 @@
   background-color: #111827;
   min-height: 100vh;
   color: #f3f4f6;
+  padding-top: calc(60px + 3rem);
 }
 
 .title {
@@ -13,6 +14,30 @@
   margin-bottom: 1.5rem;
   text-align: center;
   color: #34d399;
+}
+
+.chartContainer {
+  width: 100%;
+  max-width: 56rem;
+  margin: 1.5rem auto 2rem auto;
+  background-color: #1f2937;
+  border: 1px solid #4b5563;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.chartContainer h2 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.chartContainer text {
+  fill: #9ca3af;
 }
 
 .stockTable {
@@ -54,10 +79,6 @@
   text-align: right;
 }
 
-.stockList {
-
-}
-
 .stockRow {
   transition: background-color 150ms ease-in-out;
   font-size: 0.875rem;
@@ -65,7 +86,7 @@
   border-top: 1px solid #4b5563;
 }
 
-.stockList tr:first-child {
+.stockList tr:first-child.stockRow {
   border-top: none;
 }
 
@@ -127,6 +148,25 @@
   font-size: 0.75rem;
   color: #6b7280;
   margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.homeButton {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.homeButton:hover {
+  background-color: #0056b3;
 }
 
 @media (min-width: 640px) {
@@ -134,33 +174,31 @@
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
-   .stockRow {
-      font-size: 1rem;
-      line-height: 1.5rem;
-   }
+  .stockRow {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
   .hideOnSmall {
     display: table-cell !important;
+  }
+  .chartContainer h2 {
+    font-size: 1.25rem;
   }
 }
 
 .hideOnSmall {
   display: none;
 }
-
-/* In StockStream.module.css */
-.homeButton {
-  display: inline-block; /* Or block if you want it on its own line */
-  padding: 8px 15px;
-  background-color: #007bff; /* Example blue background */
-  color: white;
-  text-decoration: none; /* Remove underline */
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s ease; /* Smooth hover effect */
+/* In StockStream.module.css, add this: */
+.selectedRow {
+  background-color: #4a5568 !important; /* A slightly different background for selected row */
+  /* You can add other styles like a border or different text color */
 }
 
-.homeButton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+.stockRow:hover { /* Ensure hover is distinct from selected, or combine logic */
+  background-color: #374151;
+}
+
+.selectedRow:hover { /* Keep selected style on hover, or make it slightly different */
+  background-color: #525e75 !important;
 }

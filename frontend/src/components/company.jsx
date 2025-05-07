@@ -9,7 +9,7 @@ function Company() {
     <section className={styles.companySection}>
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle}>Featured Companies</h2>
-        <p className={styles.sectionSubtitle}>Invest in high-growth unlisted companies</p>
+        <p className={styles.sectionSubtitle}>Invest in high-growth companies</p>
       </div>
       
       <div className={styles.companiesGrid}>

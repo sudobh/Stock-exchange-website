@@ -5,7 +5,8 @@
   --color-light: #f8f9fa;
   --color-border: #e3e6f0;
   --shadow-sm: 0 0.15rem 0.35rem rgba(0, 0, 0, 0.1);
-  --color-grey-card: #495057; /* Added new grey color for cards */
+  --color-grey-card: #495057; 
+  padding-top: 3rem;
 }
 
 /* Navigation & Layout */
@@ -20,12 +21,11 @@
   margin: 0 auto 5%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1rem;
 }
 
-/* Company Cards - Updated section */
 .companyCard {
-  background: var(--color-grey-card); /* Changed to new grey variable */
+  background: var(--color-grey-card); 
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   padding: 1.5rem;
@@ -33,12 +33,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--color-light); /* Changed text color to light for contrast */
+  color: var(--color-light); 
 }
 
 .companyCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2); /* Darker shadow for better visibility */
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2); 
 }
 
 .companyImage {
@@ -48,7 +48,7 @@
   margin-bottom: 1.5rem;
   border: 3px solid var(--color-primary);
   padding: 0.5rem;
-  background-color: var(--color-light); /* Added light background for image */
+  background-color: var(--color-light); 
 }
 
 .companyInfo {
@@ -59,11 +59,11 @@
 .companyInfo h6 {
   margin: 0.5rem 0;
   font-size: 1rem;
-  color: var(--color-light); /* Changed to light color */
+  color: var(--color-light); 
 }
 
 .companyInfo h6 strong {
-  color: white; /* Even brighter for important text */
+  color: white; 
 }
 
 /* Buttons */
@@ -82,11 +82,10 @@
   background-color: #2e59d9;
 }
 
-/* Header */
 .pageHeader {
   text-align: center;
-  padding: 6rem 0;
-  background-color: var(--color-dark); /* Added dark background */
+  padding: 2rem 0;
+  background-color: var(--color-dark); 
   color: white;
 }
 
@@ -98,16 +97,6 @@
   display: inline-block;
 }
 
-.pageTitle::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: var(--color-secondary);
-}
 
 /* Search & Navigation */
 .searchContainer {
