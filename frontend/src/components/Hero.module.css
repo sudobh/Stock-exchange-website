@@ -1,13 +1,13 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  max-height: 800px;
+  min-height: 60vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
+  padding: 4rem 0;
 }
 
 .heroBgContainer {
@@ -21,52 +21,53 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4; 
-  filter: brightness(0.8); 
+  opacity: 0.4;
+  filter: brightness(0.8);
 }
 
 .heroContent {
   position: relative;
   z-index: 1;
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
+  text-align: center;
 }
+
 .heroText {
-  flex: 1;
-  min-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  min-width: auto;
 }
 
 .heroHeading {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 7vw, 3rem);
   font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .heroSubheading {
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .heroDescription {
-  font-size: clamp(1rem, 1.2vw, 1.2rem);
-  line-height: 1.6;
-  max-width: 600px;
-  margin-bottom: 2rem;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  line-height: 1.5;
+  max-width: 90%;
+  margin-bottom: 1.5rem;
 }
 
 .heroCta {
   display: inline-block;
-  padding: 0.8rem 2rem;
-  width: 25%;
+  padding: 0.6rem 1.5rem;
+  width: auto;
   text-align: center;
   background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
   color: white;
@@ -75,6 +76,7 @@
   text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
 }
 
 .heroCta:hover {
@@ -82,9 +84,8 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 600px) and (max-width: 768px) {
   .hero {
-    height: auto;
     min-height: 80vh;
     text-align: center;
   }
@@ -100,21 +101,31 @@
   .heroDescription {
     text-align: center;
   }
-}
-.heroCta {
-  display: inline-block;
-  background-color: #4e73df;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
+
+  .heroCta {
+    width: auto;
+  }
 }
 
-.heroCta:hover {
-  background-color: #3a5bc7;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+@media (max-width: 599px) {
+  .hero {
+    padding: 3rem 0;
+  }
+
+  .heroHeading {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .heroSubheading {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+  }
+
+  .heroDescription {
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+  }
+
+  .heroCta {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
 }
