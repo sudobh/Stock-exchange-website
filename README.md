@@ -63,27 +63,12 @@ Follow these steps to set up the project locally:
         ```bash
         uv venv -p 3.11 .venv
         ```
-    * Activate the virtual environment:
-        * On macOS and Linux:
-            ```bash
-            source .venv/bin/activate
-            ```
-        * On Windows (Command Prompt):
-            ```bash
-            .venv\Scripts\activate.bat
-            ```
-        * On Windows (PowerShell):
-            ```bash
-            .venv\Scripts\Activate.ps1
-            ```
+
     * Install Python dependencies from `requirements.txt` using `uv`:
         ```bash
         uv pip install -r requirements.txt
         ```
-    * (Optional) If you need to deactivate the virtual environment later:
-        ```bash
-        deactivate
-        ```
+
     * Navigate back to the project root directory:
         ```bash
         cd ..
