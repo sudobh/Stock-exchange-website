@@ -1,84 +1,86 @@
 .companySection {
-  padding: 4rem 2rem;
+  padding: 3rem 1.5rem;
   background-color: #212529;
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: #ffffff; /* Changed from #212529 to white for better contrast on dark bg */
-  margin-bottom: 0.5rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
 }
 
 .sectionSubtitle {
-  font-size: 1.25rem;
-  color: #d7dadd; /* Lighter gray for better readability on dark bg */
-  max-width: 700px;
-  margin: 0 auto;
+  font-size: 1rem;
+  color: #d7dadd;
+  max-width: 95%;
+  margin: 0 auto 1.5rem;
 }
 
 .companiesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .companyCard {
   background: #33383d;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.5rem; /* Increased overall padding */
 }
 
 .companyCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .companyLogo {
-  padding: 2rem;
+  padding: 2.5rem 2rem; /* Increased top/bottom padding for logo */
   text-align: center;
   background-color: #33383d;
 }
 
 .companyLogo img {
-  width: 150px;
-  height: 150px;
-  object-fit: fill;
-  border-radius: 0;
-  border: 3px solid #33383d;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #33383d;
 }
 
 .companyInfo {
-  padding: 1.5rem;
+  padding: 2rem; /* Increased padding for info section */
 }
 
 .companyName {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #c1c9d1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .companyDetails {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* Increased margin below details */
 }
 
 .detailItem {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.75rem;
+  margin-bottom: 1rem; /* Increased margin below each detail item */
+  padding-bottom: 1rem; /* Increased padding below each detail item */
   border-bottom: 1px solid #e9ecef;
+  font-size: 0.9rem;
 }
 
 .detailLabel {
@@ -94,38 +96,39 @@
 .investButton {
   display: block;
   width: 100%;
-  padding: 0.75rem;
-  background-color: #212529; /* Changed from #4e73df to match the theme */
+  padding: 1rem; /* Increased button padding */
+  background-color: #343a40;
   color: white;
   border: none;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
 }
 
 .investButton:hover {
-  background-color: #343a40; /* Darker shade for hover */
+  background-color: #495057;
 }
 
 @media (max-width: 768px) {
+  .companiesGrid {
+    grid-template-columns: 1fr;
+  }
+
   .sectionTitle {
     font-size: 2rem;
   }
-  
+
   .sectionSubtitle {
-    font-size: 1rem;
-  }
-  
-  .companiesGrid {
-    grid-template-columns: 1fr;
+    font-size: 0.9rem;
   }
 }
 
 .showMoreContainer {
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .exploreLink {
@@ -135,36 +138,37 @@
 .exploreButton {
   display: inline-flex;
   align-items: center;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #212529; /* Changed from #4e73df to match the theme */
+  background-color: #343a40;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .exploreButton:hover {
-  background-color: #343a40; /* Darker shade for hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #495057;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .arrowIcon {
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
+  margin-left: 0.4rem;
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
 }
 
 .exploreButton:hover .arrowIcon {
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 @media (max-width: 768px) {
   .exploreButton {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
   }
 }

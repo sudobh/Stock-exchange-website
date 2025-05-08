@@ -27,7 +27,7 @@ function LoginPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.currentTarget;
-        
+
         if (!form.checkValidity()) {
             e.stopPropagation();
             setValidated(true);
@@ -49,10 +49,10 @@ function LoginPage() {
 
             setError({ variant: 'success', message: 'Login successful! Redirecting...' });
             setTimeout(() => navigate('/dashboard'), 1500);
-            
+
         } catch (err) {
             console.error("Login error:", err);
-            const errorMsg = err.response?.data?.message || 
+            const errorMsg = err.response?.data?.message ||
                             "Invalid email or password. Please try again.";
             setError({ variant: 'danger', message: errorMsg });
         } finally {
@@ -63,13 +63,14 @@ function LoginPage() {
     return (
         <div className={styles.loginPage}>
             <Navibar />
-            
+
             <Container className={styles.loginContainer}>
                 <Row className="justify-content-center">
-                    <Col md={10} lg={8} xl={6}> {/* Wider column */}
+                    {/* Adjusted xl value here */}
+                    <Col md={8} lg={6} xl={6}>
                         <div className={styles.loginCard}>
-                            <h2 className="text-center mb-3">Sign In</h2> {/* Shorter title */}
-                            
+                            <h2 className="text-center mb-3">Sign In</h2>
+
                             {error && (
                                 <Alert variant={error.variant} className="mt-3">
                                     {error.message}
@@ -112,9 +113,9 @@ function LoginPage() {
                                 </Form.Group>
 
                                 <div className="d-grid mb-2">
-                                    <Button 
-                                        variant="primary" 
-                                        type="submit" 
+                                    <Button
+                                        variant="primary"
+                                        type="submit"
                                         disabled={loading}
                                         className={styles.loginButton}
                                     >

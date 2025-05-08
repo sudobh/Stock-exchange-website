@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './company.module.css';
-import { ChevronRight } from 'react-bootstrap-icons'; // Or use an alternative icon solution
+import { ChevronRight } from 'react-bootstrap-icons'; 
 
 function ShowMoreButton() {
   return (

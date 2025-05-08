@@ -1,17 +1,15 @@
 .loginPage {
-    display: flex;
+    padding-top: 4rem;
     flex-direction: column;
     background-color: #212529;
     color: white;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 .loginContainer {
-    flex: 1;
-    padding: 2rem; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .loginCard {
@@ -20,9 +18,9 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid #495057;
     color: white;
-    width: 90%; 
-    max-width: 400px; 
-    padding: 1.5rem; 
+    width: 100%;
+    max-width: 600px;
+    padding: 1.5rem;
 }
 
 .loginButton {
@@ -33,7 +31,7 @@
     border-radius: 50px;
     transition: all 0.3s;
     width: 100%;
-    font-size: 1rem; 
+    font-size: 1rem;
 }
 
 .loginButton:hover {
@@ -45,7 +43,7 @@
     color: #4e73df;
     text-decoration: none;
     transition: color 0.2s;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
 }
 
 .link:hover {
@@ -59,7 +57,7 @@
     color: white !important;
     padding: 0.75rem 1rem !important;
     height: auto !important;
-    font-size: 1rem !important; 
+    font-size: 1rem !important;
 }
 
 .formControl:focus {
@@ -71,12 +69,12 @@
 
 .formLabel {
     color: #adb5bd !important;
-    font-size: 0.9rem !important; 
+    font-size: 0.9rem !important;
     margin-bottom: 0.5rem !important;
 }
 
 .invalidFeedback {
     color: #ff6b6b !important;
     margin-top: 0.25rem !important;
-    font-size: 0.8rem !important; 
+    font-size: 0.8rem !important;
 }
