@@ -1,15 +1,15 @@
 .aboutSection {
   background-color: #212529;
   color: white;
-  padding: 4rem 0;
+  padding: 3rem 1rem;
   display: flex;
   justify-content: center;
 }
 
 .contentContainer {
   width: 100%;
-  max-width: 1200px;
-  padding: 0 2rem;
+  max-width: 768px;
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,58 +17,42 @@
 
 .header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   position: relative;
 }
 
 .underline {
-  width: 80px;
-  height: 4px;
+  width: 60px;
+  height: 3px;
   background: #4e73df;
-  margin: 0 auto;
+  margin: 0.5rem auto;
 }
 
 .textContent {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
+  gap: 1rem;
+  max-width: 100%;
 }
 
 .description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .contentContainer {
-    padding: 0 1.5rem;
-  }
-  
-  .title {
-    font-size: 2rem;
-  }
-  
-  .description {
-    font-size: 1rem;
-    text-align: left;
-  }
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
 }
 
 @media (max-width: 480px) {
   .aboutSection {
-    padding: 3rem 0;
+    padding: 2rem 1rem;
   }
-  
+
   .title {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 }
