@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Foot from "./Footer";
 import styles from "./ourCompany.module.css";
 import { useNavigate } from "react-router-dom";
 import { companyData } from "../assets/companyData.js";
@@ -87,7 +86,7 @@ function OurCompany() {
         ))}
       </div>
 
-      <Foot />
+      
     </div>
   );
 }

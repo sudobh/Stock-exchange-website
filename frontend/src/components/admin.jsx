@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import styles from "./admin.module.css";
-import Foot from "./Footer";
+import styles from "./admin.module.css"; 
 
 function Adminpage() {
   const [formData, setFormData] = useState({
@@ -20,15 +19,24 @@ function Adminpage() {
     }));
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      formData.initialSharePrice = parseFloat(formData.initialSharePrice)
-      formData.marketCapitalisation = parseFloat(formData.marketCapitalisation)
-      formData.peRatio = parseFloat(formData.peRatio)
+      // Basic validation
+      if (!formData.companyName.trim() || !formData.aboutCompany.trim()) {
+        alert("Company Name and About Company are required.");
+        return; // Stop submission
+      }
 
-      await axios.post("http://localhost:3001/newcompany", formData);
+      const payload = {
+        companyName: formData.companyName,
+        marketCapitalisation: parseFloat(formData.marketCapitalisation),
+        initialSharePrice: parseFloat(formData.initialSharePrice),
+        peRatio: parseFloat(formData.peRatio),
+        aboutCompany: formData.aboutCompany,
+      };
+
+      await axios.post("http://localhost:3001/newcompany", payload);
       alert("Form submitted successfully!");
       // Reset form data after submission
       setFormData({
@@ -37,7 +45,6 @@ function Adminpage() {
         initialSharePrice: "",
         peRatio: "",
         aboutCompany: "",
-        companyLogo: null,
       });
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -46,118 +53,118 @@ function Adminpage() {
   };
 
   return (
-    <div className={`${styles.maincontainer}`}>
-      <div className={`${styles.namecontainer}`}> Stock Exchange</div>
-      <hr className={`${styles.line}`} />
-      <div className={`${styles.formcontainer}`}>
-        <form onSubmit={handleSubmit}>
-          <div className={`${styles.inputcontainer} row`}>
-            <div className="col-6">
-              <label htmlFor="CompanyName">Company Name: </label>
-            </div>
-            <div className="col-6">
-              <input
-                type="text"
-                name="companyName"
-                value={formData.companyName}
-                placeholder="Enter Company Name"
-                className={`${styles.inputfield}`}
-                onChange={handleChange}
-                required
-              />
-            </div>
+    <div>
+      <div className={styles.container}>
+        <div className={styles.heading}>
+          <h1>
+            Stock Exchange
+          </h1>
+          <p>
+            Add a new company to the exchange
+          </p>
+        </div>
+        <form
+          onSubmit={handleSubmit}
+          className={styles.form}
+        >
+          <div className={styles.formGroup}>
+            <label
+              htmlFor="CompanyName"
+              className={styles.label}
+            >
+              Company Name:
+            </label>
+            <input
+              type="text"
+              name="companyName"
+              value={formData.companyName}
+              placeholder="Enter Company Name"
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
           </div>
-          <div className={`${styles.inputcontainer} row`}>
-            <div className="col-6">
-              <label htmlFor="MarketCapitalisation">
-                Market Capitalisation(in cr.₹)
-              </label>
-            </div>
-            <div className="col-6">
-              <input
-                type="number"
-                name="marketCapitalisation"
-                value={formData.marketCapitalisation}
-                placeholder="Market Capitalisation"
-                className={`${styles.inputfield}`}
-                onChange={handleChange}
-                required
-                min={1000}
-              />
-            </div>
+          <div className={styles.formGroup}>
+            <label
+              htmlFor="MarketCapitalisation"
+              className={styles.label}
+            >
+              Market Capitalisation (in ₹ Cr):
+            </label>
+            <input
+              type="number"
+              name="marketCapitalisation"
+              value={formData.marketCapitalisation}
+              placeholder="Market Capitalisation"
+              onChange={handleChange}
+              required
+              min={1000}
+              className={styles.input}
+            />
           </div>
-          <div className={`${styles.inputcontainer} row`}>
-            <div className="col-6">
-              <label htmlFor="initial price">Initial Share Price(in ₹):</label>
-            </div>
-            <div className="col-6">
-              <input
-                type="number"
-                name="initialSharePrice"
-                value={formData.initialSharePrice}
-                placeholder="Initial Share Price(in ₹):"
-                className={`${styles.inputfield}`}
-                onChange={handleChange}
-                required
-                min={1}
-              />
-            </div>
+          <div className={styles.formGroup}>
+            <label
+              htmlFor="initialSharePrice"
+              className={styles.label}
+            >
+              Initial Share Price (in ₹):
+            </label>
+            <input
+              type="number"
+              name="initialSharePrice"
+              value={formData.initialSharePrice}
+              placeholder="Initial Share Price"
+              onChange={handleChange}
+              required
+              min={1}
+              className={styles.input}
+            />
           </div>
-          <div className={`${styles.inputcontainer} row`}>
-            <div className="col-6">
-              <label htmlFor="pe.ratio">P/E Ratio:</label>
-            </div>
-            <div className="col-6">
-              <input
-                type="number"
-                name="peRatio"
-                value={formData.peRatio}
-                placeholder="Enter P/E Ratio"
-                className={`${styles.inputfield}`}
-                onChange={handleChange}
-                required
-                min={0}
-              />
-            </div>
+          <div className={styles.formGroup}>
+            <label
+              htmlFor="peRatio"
+              className={styles.label}
+            >
+              P/E Ratio:
+            </label>
+            <input
+              type="number"
+              name="peRatio"
+              value={formData.peRatio}
+              placeholder="Enter P/E Ratio"
+              onChange={handleChange}
+              required
+              min={0}
+              className={styles.input}
+            />
           </div>
-          <div className={`${styles.inputcontainer} row`}>
-            <div className="col-6">
-              <label htmlFor="CompanyLogo">Company Logo: </label>
-            </div>
-            <div className="col-6">
-              <input
-                type="file"
-                name="companyLogo"
-                className={`${styles.inputfield1}`}
-                required accept="image/png, image/jpeg, image/jpg"
-              />
-            </div>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="AboutCompany" className="form-label">
+
+          <div className={styles.formGroup}>
+            <label
+              htmlFor="AboutCompany"
+              className={styles.label}
+            >
               About Company:
             </label>
             <textarea
-              className="form-control"
               id="AboutCompany"
               name="aboutCompany"
               value={formData.aboutCompany}
-              rows="3"
+              rows={4}
               onChange={handleChange}
               required
-            ></textarea>
+              placeholder="Enter company description..."
+              className={styles.textarea}
+            />
           </div>
-          <div className={`${styles.inputcontainer} row`}>
-            <div className="col-4">
-              <button type="submit" className={`${styles.submitbtn}`}>
-                SUBMIT
-              </button>
-            </div>
-          </div>
+          <button
+            type="submit"
+            className={styles.button}
+          >
+            SUBMIT
+          </button>
         </form>
       </div>
-      <hr className={`${styles.line}`} />
-      <Foot />
     </div>
   );
 }

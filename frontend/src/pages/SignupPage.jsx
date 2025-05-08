@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Navibar from "../components/Navbar";
-import Foot from "../components/Footer";
 import { Form, Button, Container, Row, Col, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
 import styles from './LoginPage.module.css'; 
@@ -207,7 +206,7 @@ function SignupPage() {
                 </Row>
             </Container>
 
-            <Foot />
+            
         </div>
     );
 }

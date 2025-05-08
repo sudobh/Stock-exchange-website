@@ -1,68 +1,67 @@
 .container {
   font-family: 'Inter', sans-serif;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   background-color: #111827;
   min-height: 100vh;
   color: #f3f4f6;
-  padding-top: calc(60px + 3rem);
+  padding-top: calc(60px + 1.5rem);
 }
 
 .title {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
   color: #34d399;
 }
 
 .chartContainer {
-  width: 100%;
-  max-width: 56rem;
-  margin: 1.5rem auto 2rem auto;
+  width: 95%;
+  margin: 1rem auto;
   background-color: #1f2937;
   border: 1px solid #4b5563;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
 }
 
 .chartContainer h2 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 600;
   text-align: center;
   color: #d1d5db;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .chartContainer text {
   fill: #9ca3af;
+  font-size: 0.75rem;
 }
 
 .stockTable {
-  width: 100%;
-  max-width: 56rem;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
   border: 1px solid #4b5563;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
   background-color: #1f2937;
 }
 
 .tableHeader {
   background-color: #374151;
   color: #d1d5db;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
   font-weight: 600;
 }
 
 .tableHeader th {
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
   border-bottom: 1px solid #4b5563;
   border-right: 1px solid #4b5563;
 }
@@ -81,8 +80,8 @@
 
 .stockRow {
   transition: background-color 150ms ease-in-out;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
   border-top: 1px solid #4b5563;
 }
 
@@ -95,7 +94,7 @@
 }
 
 .stockRow td {
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
   vertical-align: middle;
   border-right: 1px solid #4b5563;
   overflow: hidden;
@@ -114,7 +113,7 @@
 }
 
 .symbol {
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   color: #9ca3af;
   margin-left: 0.25rem;
 }
@@ -145,45 +144,28 @@
 
 .disclaimer {
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   color: #6b7280;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .homeButton {
   display: inline-block;
-  padding: 8px 15px;
+  padding: 6px 12px;
   background-color: #007bff;
   color: white;
   text-decoration: none;
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.875rem;
   transition: background-color 0.2s ease;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .homeButton:hover {
   background-color: #0056b3;
-}
-
-@media (min-width: 640px) {
-  .title {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-  .stockRow {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-  .hideOnSmall {
-    display: table-cell !important;
-  }
-  .chartContainer h2 {
-    font-size: 1.25rem;
-  }
 }
 
 .hideOnSmall {
@@ -194,10 +176,75 @@
   background-color: #4a5568 !important;
 }
 
-.stockRow:hover { 
+.stockRow:hover {
   background-color: #374151;
 }
 
-.selectedRow:hover { 
+.selectedRow:hover {
   background-color: #525e75 !important;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 1rem 1.5rem;
+    padding-top: calc(60px + 3rem);
+  }
+  .title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .chartContainer {
+    width: 100%;
+    max-width: 56rem;
+    margin: 1.5rem auto 2rem auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  .chartContainer h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  .chartContainer text {
+    font-size: inherit;
+  }
+  .stockTable {
+    width: 100%;
+    max-width: 56rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow-x: hidden;
+  }
+  .tableHeader {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .tableHeader th {
+    padding: 0.75rem 1rem;
+  }
+  .stockRow {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .stockRow td {
+    padding: 0.75rem 1rem;
+  }
+  .symbol {
+    font-size: 0.75rem;
+  }
+  .disclaimer {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .homeButton {
+    padding: 8px 15px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .hideOnSmall {
+    display: table-cell !important;
+  }
 }

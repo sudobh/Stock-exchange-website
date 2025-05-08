@@ -3,7 +3,6 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Button, Modal, Form, Alert, Table } from 'react-bootstrap';
 import Navibar from '../components/Navbar';
-import Foot from '../components/Footer';
 import styles from './dashboard.module.css';
 import { companyData as allCompanyDataList } from '../assets/companyData.js';
 
@@ -188,7 +187,7 @@ function Dashboard() {
                 <Container className="mt-5 pt-5 text-center">
                     Loading User Data...
                 </Container>
-                <Foot />
+                
             </div>
         );
     }
@@ -201,7 +200,7 @@ function Dashboard() {
                     <Alert variant="danger" className={styles.alertMessage}>{pageError}</Alert>
                     <Button onClick={fetchUserDataAndTransactions} variant="primary" className={styles.retryButton}>Try Again</Button>
                 </Container>
-                <Foot />
+                
             </div>
         );
     }
@@ -213,7 +212,7 @@ function Dashboard() {
                 <Container className="mt-5 pt-5 text-center">
                     <Alert variant="warning" className={styles.alertMessage}>Could not load user data. Please try refreshing or logging in again.</Alert>
                 </Container>
-                <Foot />
+                
             </div>
         );
     }
@@ -389,7 +388,7 @@ function Dashboard() {
                     </Modal.Footer>
                 </Modal>
             )}
-            <Foot />
+            
         </div>
     );
 }

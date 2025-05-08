@@ -192,7 +192,7 @@ function CompanyPage() {
         </Button>
       </div>
 
-      <Foot />
+      
 
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton className={modalVariant ? `bg-${modalVariant} text-white` : ''}>
