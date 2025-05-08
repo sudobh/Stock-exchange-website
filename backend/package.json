@@ -11,9 +11,7 @@
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
-  },
-  "devDependencies": {
+    "typescript": "^5.4.5",
     "@prisma/client": "^6.7.0",
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",

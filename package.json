@@ -11,7 +11,7 @@
     "install:all": "npm run install:frontend && npm run install:backend",
     "postinstall": "npm run install:all"
   },
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^8.2.2"
   }
 }
